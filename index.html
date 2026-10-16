@@ -310,12 +310,10 @@ section{padding-block:clamp(72px,10vw,128px)}
 .gv .t:hover{filter:brightness(1.06)}
 .gv + .gv{margin-top:clamp(10px,2.5vw,32px)}
 .gv.second{align-items:start}
-.gv .t1{background-image:url(img/g-mor.jpg)}.gv .t2{background-image:url(img/g-modern.jpg)}
-.gv .t3{background-image:url(img/sahne.jpg);background-position:50% 55%}
-.gv .t4{background-image:url(img/g-renkli.jpg)}.gv .t5{background-image:url(img/g-drama.jpg)}
-.gv .t6{background-image:url(img/g-kirmizi.jpg)}.gv .t7{background-image:url(img/g-sahne.jpg)}.gv .t8{background-image:url(img/kapak.jpg)}
-.gv .t9{background-image:url(img/g-mavi.jpg);background-position:30% 50%}.gv .t10{background-image:url(img/g-cicek.jpg);background-position:48% 40%}.gv .t11{background-image:url(img/g-beyaz.jpg);background-position:40% 60%}
+.gv .t9{background-image:url(img/g-mavi.jpg);background-position:30% 50%}.gv .t10{background-image:url(img/g-cicek.jpg);background-position:48% 40%}.gv .t11{background-image:url(img/g-beyaz.jpg)}
 .gv .t12{background-image:url(img/g-mor2.jpg);background-position:70% 50%}.gv .t13{background-image:url(img/g-erkek.jpg)}.gv .t14{background-image:url(img/g-vaksa.jpg);background-position:50% 72%}.gv .t15{background-image:url(img/g-diz.jpg);background-position:40% 50%}
+.gv.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gv.two .t{aspect-ratio:3/2}
 
 /* ===== GALERİ: sekmeler + gösteriler ===== */
 #galeri .kicker{font-size:.74rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--al)}
@@ -769,24 +767,13 @@ dialog.lb[open],dialog.vd[open]{display:grid;place-items:center}
       <!-- FOTOĞRAFLAR -->
       <div class="panel" id="p-foto" role="tabpanel" aria-labelledby="tab-foto" hidden>
         <div class="gv">
-          <div class="col"><button class="t t1" type="button" aria-label="Büyüt: Mor ışık altında dönen dansçılar" data-alt="Mor ışık altında dönen dansçılar"></button><button class="t t2" type="button" aria-label="Büyüt: Modern dans gösterisi" data-alt="Modern dans gösterisi"></button></div>
-          <button class="t t3" type="button" aria-label="Büyüt: Kibele gösterisi sonunda ekip sahnede" data-alt="Kibele gösterisi sonunda ekip sahnede"></button>
-          <div class="col"><button class="t t4" type="button" aria-label="Büyüt: Renkli kostümlü halk oyunu ekibi" data-alt="Renkli kostümlü halk oyunu ekibi"></button><button class="t t5" type="button" aria-label="Büyüt: Dramatik sahne anı" data-alt="Dramatik sahne anı"></button></div>
-        </div>
-        <div class="gv">
-          <button class="t t6" type="button" aria-label="Büyüt: Kırmızı kostümlü ekip sahnede" data-alt="Kırmızı kostümlü ekip sahnede"></button>
-          <button class="t t7" type="button" aria-label="Büyüt: Dev ekran önünde büyük sahne gösterisi" data-alt="Dev ekran önünde büyük sahne gösterisi"></button>
-          <button class="t t8" type="button" aria-label="Büyüt: Modern dans koreografisi" data-alt="Modern dans koreografisi"></button>
-        </div>
-        <div class="gv">
-          <button class="t t9" type="button" aria-label="Büyüt: Mavi etekli dansçılar sahnede kollarını açmış" data-alt="Mavi etekli dansçılar sahnede kollarını açmış"></button>
+          <div class="col"><button class="t t9" type="button" aria-label="Büyüt: Mavi etekli dansçılar sahnede kollarını açmış" data-alt="Mavi etekli dansçılar sahnede kollarını açmış"></button><button class="t t12" type="button" aria-label="Büyüt: Mor ışık altında gümüş takılı kadın dansçılar" data-alt="Mor ışık altında gümüş takılı kadın dansçılar"></button></div>
           <button class="t t10" type="button" aria-label="Büyüt: Çiçekli başlıklı kadın ve erkek halk oyuncuları" data-alt="Çiçekli başlıklı kadın ve erkek halk oyuncuları"></button>
-          <button class="t t11" type="button" aria-label="Büyüt: Beyaz kostümlü modern dans ekibi sahnede sıralanmış" data-alt="Beyaz kostümlü modern dans ekibi sahnede sıralanmış"></button>
+          <div class="col"><button class="t t14" type="button" aria-label="Büyüt: Kadın ve erkek halk oyunu ekibi yarışma sahnesinde" data-alt="Kadın ve erkek halk oyunu ekibi yarışma sahnesinde"></button><button class="t t15" type="button" aria-label="Büyüt: Halk oyuncuları sıra halinde diz çekiyor" data-alt="Halk oyuncuları sıra halinde diz çekiyor"></button></div>
         </div>
-        <div class="gv">
-          <div class="col"><button class="t t12" type="button" aria-label="Büyüt: Mor ışık altında gümüş takılı kadın dansçılar" data-alt="Mor ışık altında gümüş takılı kadın dansçılar"></button><button class="t t13" type="button" aria-label="Büyüt: Siyah yelekli erkek halk oyuncuları sahnede" data-alt="Siyah yelekli erkek halk oyuncuları sahnede"></button></div>
-          <button class="t t14" type="button" aria-label="Büyüt: Kadın ve erkek halk oyunu ekibi yarışma sahnesinde" data-alt="Kadın ve erkek halk oyunu ekibi yarışma sahnesinde"></button>
-          <button class="t t15" type="button" aria-label="Büyüt: Halk oyuncuları sıra halinde diz çekiyor" data-alt="Halk oyuncuları sıra halinde diz çekiyor"></button>
+        <div class="gv two">
+          <button class="t t13" type="button" aria-label="Büyüt: Siyah yelekli erkek halk oyuncuları sahnede" data-alt="Siyah yelekli erkek halk oyuncuları sahnede"></button>
+          <button class="t t11" type="button" aria-label="Büyüt: Beyaz kostümlü modern dans ekibi sahnede sıralanmış" data-alt="Beyaz kostümlü modern dans ekibi sahnede sıralanmış"></button>
         </div>
       </div>
 
@@ -1002,9 +989,16 @@ dialog.lb[open],dialog.vd[open]{display:grid;place-items:center}
   /* Arka plan videosu: telefonda küçük dosya, veri tasarrufunda hiç yüklenmez */
   var v=document.getElementById('bgVideo');
   var c=navigator.connection||{};
-  if(!c.saveData){
+  var hero=document.querySelector('.hero');
+  function start(){ if(v.paused){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); } }
+  if(!c.saveData && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     v.src=window.matchMedia('(max-width:700px)').matches?'img/arka-plan-mobil.mp4':'img/arka-plan.mp4';
-    v.preload='auto';
+    v.preload='auto'; v.load();
+    /* Tarayıcı ilk denemede başlatmazsa: yüklenince, sekmeye dönünce ve ilk dokunuşta tekrar dene */
+    v.addEventListener('canplay',function(){ if(hero.classList.contains('live')) start(); });
+    var tries=0, iv=setInterval(function(){ if(hero.classList.contains('live')) start(); if(!v.paused||++tries>20) clearInterval(iv); },700);
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) start(); });
+    ['pointerdown','touchstart','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev,start,{once:true,passive:true}); });
   }
 
   /* Mobil menü */
