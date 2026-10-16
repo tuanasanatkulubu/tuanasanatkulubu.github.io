@@ -466,6 +466,36 @@ dialog.lb[open],dialog.vd[open]{display:grid;place-items:center}
 .lb-close:hover,.lb-nav:hover{background:var(--al);border-color:var(--al)}
 .vd-frame{width:min(92vw,calc(86vh * 16 / 9),1280px);aspect-ratio:16/9;background:#000}
 .vd-frame iframe{width:100%;height:100%;border:0;display:block}
+
+/* ===== TELEFON UYUMU (iOS + Android) ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html:has(dialog[open]){overflow:hidden}
+.bar{-webkit-backdrop-filter:blur(8px)}
+.btn.on-dark{-webkit-backdrop-filter:blur(4px)}
+.hero{min-height:100vh;min-height:min(100svh,920px)}
+@supports not (container-type:inline-size){.year{font-size:calc(min(380px,66vw) * .1)}}
+footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
+/* Dikey telefonda video kırpılmasın: tam genişlikte görünür, boşluklar videonun bulanık karesiyle dolar */
+@media (orientation:portrait) and (max-width:860px){
+  .hero{background:var(--night) url(img/hero-blur.jpg) center/cover no-repeat}
+  .hero .bg{object-fit:contain;object-position:50% 50%}
+  .hero::after{background:linear-gradient(180deg,rgba(16,16,18,.55),rgba(16,16,18,.25) 40%,rgba(16,16,18,.25) 60%,rgba(16,16,18,.8))}
+}
+/* Yatay telefonda logo ve düğme ekrana sığsın */
+@media (orientation:landscape) and (max-height:520px){
+  .hero{min-height:100vh;min-height:100svh}
+  .center{padding-top:20px}
+  .logo-wrap{width:min(380px,66vw,calc(52svh * 900 / 440))}
+  .entry{padding-bottom:20px}
+}
+/* Galeri telefonda: büyük fotoğraf üstte tam genişlik, küçükler ikişerli */
+@media (max-width:600px){
+  .gv{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .gv .col{display:contents}
+  .gv > .t{grid-column:1 / -1;order:-1}
+  .gv.two > .t{order:0}
+  .gv + .gv{margin-top:10px}
+}
 @media (max-width:860px){
   .bar .wrap{grid-template-columns:auto 1fr auto}
   .bar .right{display:none}
@@ -988,6 +1018,7 @@ dialog.lb[open],dialog.vd[open]{display:grid;place-items:center}
 (function(){
   /* Arka plan videosu: telefonda küçük dosya, veri tasarrufunda hiç yüklenmez */
   var v=document.getElementById('bgVideo');
+  v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); v.setAttribute('autoplay','');
   var c=navigator.connection||{};
   var hero=document.querySelector('.hero');
   function start(){ if(v.paused){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); } }
@@ -1013,7 +1044,7 @@ dialog.lb[open],dialog.vd[open]{display:grid;place-items:center}
   var tiles=[].slice.call(document.querySelectorAll('#p-foto .t')), cur=0;
   function src(t){var b=getComputedStyle(t).backgroundImage;var x=b.match(/url\(["']?(.*?)["']?\)/);return x?x[1]:'';}
   function show(i){cur=(i+tiles.length)%tiles.length;img.src=src(tiles[cur]);img.alt=tiles[cur].dataset.alt||'';}
-  tiles.forEach(function(t,i){t.addEventListener('click',function(){show(i);lb.showModal();});});
+  tiles.forEach(function(t,i){t.addEventListener('click',function(){ if(!lb.showModal){ window.open(src(t),'_blank'); return; } show(i);lb.showModal();});});
   lb.querySelector('.prev').addEventListener('click',function(){show(cur-1);});
   lb.querySelector('.next').addEventListener('click',function(){show(cur+1);});
   lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
