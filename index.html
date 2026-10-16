@@ -916,7 +916,7 @@ dialog.lb[open],dialog.vd[open]{display:grid;place-items:center}
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   setTimeout(function(){
     hero.classList.add('live');
-    if (!reduce){ var p = vid.play(); if (p && p.catch) p.catch(function(){}); }
+    var p = vid.play(); if (p && p.catch) p.catch(function(){});  /* hareket azaltma açık olsa da arka plan videosu oynar */
   }, reduce ? 0 : 2600);
 
   /* Sayaç: görününce sıfırdan sayar; ilk açılışta son değerler yazılı */
@@ -991,7 +991,7 @@ dialog.lb[open],dialog.vd[open]{display:grid;place-items:center}
   var c=navigator.connection||{};
   var hero=document.querySelector('.hero');
   function start(){ if(v.paused){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); } }
-  if(!c.saveData && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  if(!c.saveData){
     v.src=window.matchMedia('(max-width:700px)').matches?'img/arka-plan-mobil.mp4':'img/arka-plan.mp4';
     v.preload='auto'; v.load();
     /* Tarayıcı ilk denemede başlatmazsa: yüklenince, sekmeye dönünce ve ilk dokunuşta tekrar dene */
