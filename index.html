@@ -534,6 +534,15 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
   .hero{min-height:100vh;min-height:100svh}
   .hero .bg{object-fit:cover;object-position:50% 50%}
 }
+/* Ses düğmesi */
+.sound{position:absolute;right:max(20px,env(safe-area-inset-right,0px));bottom:max(22px,env(safe-area-inset-bottom,0px));z-index:3;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(16,16,18,.35);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:#fff;font:inherit;font-family:var(--f-head);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .9s ease,transform .9s ease,background .25s,border-color .25s}
+.hero.e-on .sound{opacity:1;transform:none}
+.sound:hover{background:var(--al);border-color:var(--al)}
+.sound svg{width:20px;height:20px;fill:currentColor}
+.sound .i-on{display:none}
+.sound[aria-pressed="true"] .i-on{display:block}
+.sound[aria-pressed="true"] .i-off{display:none}
+@media (max-width:520px){.sound .lbl{display:none}.sound{padding:0;width:44px;justify-content:center}}
 /* Açılış akışı: önce logo, sonra video, sonra 25. YIL, en son Kulübü Keşfet */
 .hero .bg{opacity:0;transition:opacity 1.2s ease}
 .hero.v-on .bg{opacity:1}
@@ -590,6 +599,11 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
   <div class="entry">
     <a class="btn on-dark" href="#hosgeldiniz">Kulübü Keşfet</a>
   </div>
+  <button class="sound" id="soundBtn" type="button" aria-pressed="false" aria-label="Sesi aç">
+    <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l4 6M21 9l-4 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span class="lbl">Sesi aç</span>
+  </button>
 </header>
 
 <div class="bar" lang="tr">
@@ -1112,6 +1126,39 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
     /* Otomatik oynatma engelliyse (ör. iPhone düşük güç modu) 2 sn sonra kapak görseliyle devam et */
     setTimeout(function(){ if(!shown){ v.poster=posterUrl(); hero.classList.add('v-on'); showRest(); } }, 2000);
   }, 1600);
+
+  /* ===== SES: tarayıcılar sesli otomatik oynatmaya izin vermez; ilk dokunuşta ya da düğmeyle açılır,
+     kısıktan yükselerek gelir; açılıştan uzaklaşınca kısılır ===== */
+  var sb=document.getElementById('soundBtn'), ac=null, gain=null, soundOn=false, heroVisible=true;
+  try{ if(navigator.audioSession) navigator.audioSession.type='playback'; }catch(e){}
+  function ramp(to,sec){
+    if(gain){ var t=ac.currentTime; gain.gain.cancelScheduledValues(t); gain.gain.setValueAtTime(gain.gain.value,t); gain.gain.linearRampToValueAtTime(to,t+sec); }
+    else { v.volume=to; }
+  }
+  function setBtn(on){ sb.setAttribute('aria-pressed',on?'true':'false'); sb.setAttribute('aria-label',on?'Sesi kapat':'Sesi aç'); sb.querySelector('.lbl').textContent=on?'Sesi kapat':'Sesi aç'; }
+  function enableSound(){
+    try{
+      if(!ac){ var AC=window.AudioContext||window.webkitAudioContext; if(AC){ ac=new AC(); var src=ac.createMediaElementSource(v); gain=ac.createGain(); gain.gain.value=0; src.connect(gain); gain.connect(ac.destination); } }
+      if(ac&&ac.state==='suspended') ac.resume();
+    }catch(e){ ac=null; gain=null; }
+    soundOn=true; v.muted=false; wantPlay=true; setBtn(true);
+    var pr=v.play();
+    /* Tarayıcı bu dokunuşu izin olarak saymadıysa sessize dön, video durmasın; sonraki dokunuşta tekrar dene */
+    if(pr&&pr.catch) pr.catch(function(){ soundOn=false; v.muted=true; setBtn(false); play(); firstDone=false; arm(); });
+    if(heroVisible) ramp(1,3); else ramp(0,.1);
+  }
+  function disableSound(){ soundOn=false; setBtn(false); ramp(0,.6); setTimeout(function(){ if(!soundOn) v.muted=true; },650); }
+  sb.addEventListener('click',function(e){ e.stopPropagation(); firstDone=true; if(soundOn){ userOff=true; disableSound(); } else { userOff=false; enableSound(); } });
+  /* Ekip isteği: sayfadaki ilk dokunuş/tıklamada ses kendiliğinden açılsın (sesi kapatmış kişide tekrar açılmaz) */
+  var firstDone=false, userOff=false;
+  function firstGesture(e){ if(firstDone||userOff) return; if(e&&e.target&&e.target.closest&&e.target.closest('#soundBtn')) return; firstDone=true; if(!soundOn) enableSound(); }
+  function arm(){ ['click','keydown'].forEach(function(ev){ window.addEventListener(ev,firstGesture,{once:true,capture:true}); }); }
+  arm();
+  /* Açılıştan aşağı inince ses yavaşça kısılır, geri gelince açılır; sekme arka plandaysa durur */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ heroVisible=en[0].intersectionRatio>0.35; if(soundOn) ramp(heroVisible?1:0, heroVisible?1.5:1); },{threshold:[0,.35,.6]}).observe(hero);
+  }
+  document.addEventListener('visibilitychange',function(){ if(document.hidden&&soundOn) ramp(0,.2); else if(soundOn&&heroVisible) ramp(1,1.5); });
 
   /* Mobil menü */
   var btn=document.querySelector('.menu-btn'), m=document.getElementById('mnav');
