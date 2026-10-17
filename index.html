@@ -6,6 +6,9 @@
 <title>Tuana Sanat Kulübü · Halk Oyunları ve Dans · Ankara</title>
 <meta name="description" content="2002'den beri Ankara'da Türk halk danslarını sahnede yaşatıyoruz. Halk oyunları, modern dans, bale, flamenko, sirtaki ve oryantal kursları; gösteriler ve bilet satışı.">
 <link rel="canonical" href="https://tuanasanatkulubu.com/">
+<link rel="alternate" hreflang="tr" href="https://tuanasanatkulubu.com/">
+<link rel="alternate" hreflang="en" href="https://tuanasanatkulubu.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://tuanasanatkulubu.com/">
 <meta name="theme-color" content="#101012">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="img/icon-512.png">
@@ -602,6 +605,16 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
   .hero .entry{transition:opacity .9s ease,transform .9s ease!important}
   html{scroll-behavior:auto}
 }
+/* Dil seçeneği */
+.hero-lang{position:absolute;top:max(18px,env(safe-area-inset-top,0px));right:max(20px,env(safe-area-inset-right,0px));z-index:3;display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 14px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(16,16,18,.35);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:#fff;text-decoration:none;font-family:var(--f-head);font-size:.74rem;letter-spacing:.18em;opacity:0;transition:opacity .9s ease,background .25s,border-color .25s}
+.hero.e-on .hero-lang{opacity:1}
+.hero-lang:hover{background:var(--al);border-color:var(--al)}
+.bar .right a.lang{padding-left:18px;border-left:1px solid var(--line)}
+.bar .lang-m{display:none;text-decoration:none;font-size:.78rem;letter-spacing:.16em;color:var(--ink-soft);padding:10px 6px;justify-self:end}
+@media (max-width:1000px){
+  .bar .wrap{grid-template-columns:auto 1fr auto auto}
+  .bar .lang-m{display:inline-block}
+}
 </style>
 
 </head>
@@ -620,6 +633,7 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
   <div class="entry">
     <a class="btn on-dark" href="#hosgeldiniz">Kulübü Keşfet</a>
   </div>
+  <a class="hero-lang" href="en/" hreflang="en" lang="en" aria-label="English">EN</a>
   <button class="sound" id="soundBtn" type="button" aria-pressed="false" aria-label="Sesi aç">
     <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l4 6M21 9l-4 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
     <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -640,7 +654,9 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
       <a class="ticket" href="https://bilet.tuanasanatkulubu.com" target="_blank" rel="noopener">Bilet Al</a>
       <a href="#subeler">Şubeler</a>
       <a href="#iletisim">İletişim</a>
+      <a class="lang" href="en/" hreflang="en" lang="en" aria-label="English">EN</a>
     </div>
+    <a class="lang-m" href="en/" hreflang="en" lang="en" aria-label="English">EN</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menüyü aç"><span></span><span></span><span></span></button>
   </div>
   <nav class="mnav" id="mnav" aria-label="Mobil menü" hidden>

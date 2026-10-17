@@ -1,0 +1,1288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tuana Art Club (Tuana Sanat Kulübü) · Turkish Folk Dance · Ankara</title>
+<meta name="description" content="Keeping Turkish folk dance alive on stage in Ankara since 2002. Classes in Turkish folk dance, modern dance, ballet, flamenco, sirtaki and belly dance; performances and tickets.">
+<link rel="canonical" href="https://tuanasanatkulubu.com/en/">
+<link rel="alternate" hreflang="tr" href="https://tuanasanatkulubu.com/">
+<link rel="alternate" hreflang="en" href="https://tuanasanatkulubu.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://tuanasanatkulubu.com/">
+<meta name="theme-color" content="#101012">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="../img/icon-512.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:site_name" content="Tuana Sanat Kulübü">
+<meta property="og:title" content="Tuana Sanat Kulübü">
+<meta property="og:description" content="Keeping Turkish folk dance alive on stage since 2002. Next performance: Kibele, 5 December 2026.">
+<meta property="og:url" content="https://tuanasanatkulubu.com/en/">
+<meta property="og:image" content="https://tuanasanatkulubu.com/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Allura&family=EB+Garamond:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: karanlık açılış (video + ortada logo), ardından ferah beyaz sayfalar; dar metin sütunu,
+   döndürülmüş dikey bölüm adları, büyük fotoğraflar. Renk: beyaz, mürekkep, gri bant, tek kırmızı vurgu. */
+:root{
+  --paper:#ffffff;
+  --mist:#f2f2f0;
+  --ink:#19191b;
+  --ink-soft:#55565b;
+  --band:#4a4c52;
+  --night:#101012;
+  --al:#c8202f;
+  --line:#e2e2df;
+  --f-head:"Jost", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  --f-body:"Jost", "Century Gothic", "Avenir Next", system-ui, sans-serif;
+  --f-year:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --f-script:"Allura", "Brush Script MT", cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-weight:300;font-size:17px;line-height:1.75;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+h1,h2,h3{font-family:var(--f-head);font-weight:400;text-transform:uppercase;letter-spacing:.12em;margin:0;line-height:1.25;text-wrap:balance}
+:focus-visible{outline:2px solid var(--al);outline-offset:4px}
+.draft{background:var(--ink);color:#fff;font-size:.75rem;font-weight:500;letter-spacing:.08em;text-align:center;padding-block:5px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+
+/* ===== AÇILIŞ ===== */
+.hero{position:relative;min-height:min(100svh,920px);display:grid;grid-template-rows:1fr auto;isolation:isolate;overflow:hidden;background:var(--night);color:#fff}
+.bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease;filter:brightness(.8)}
+.hero.live .bg{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(16,16,18,.55),rgba(16,16,18,.35) 45%,rgba(16,16,18,.8))}
+.year{position:absolute;left:38.1%;top:72%;font-family:"EB Garamond", "Garamond", "Times New Roman", serif;font-weight:500;font-size:10cqw;font-variant-numeric:lining-nums;line-height:1;letter-spacing:.02em;white-space:nowrap;color:#fff;opacity:0;transition:opacity 1.2s .2s}
+.hero.live .year{opacity:1}
+.center{display:grid;place-items:center;padding-top:72px}
+.logo-wrap{position:relative;width:min(380px,66vw);aspect-ratio:900/440;max-width:100%;margin:0 0 6%;container-type:inline-size}
+.logo-wrap img{width:100%;height:100%;display:block;animation:reveal 1.8s cubic-bezier(.2,.7,.2,1) both}
+.logo-wrap .shine{position:absolute;inset:0;-webkit-mask:url(../img/logo-beyaz-en.png) center/contain no-repeat;mask:url(../img/logo-beyaz-en.png) center/contain no-repeat;background:linear-gradient(100deg,transparent 38%,rgba(255,255,255,.9) 50%,transparent 62%) no-repeat;background-size:250% 100%;background-position:150% 0;animation:sweep 1.4s ease-in-out 1.5s both}
+@keyframes reveal{0%{opacity:0;filter:blur(14px);clip-path:inset(0 100% 0 0)}60%{opacity:1;filter:blur(2px)}100%{opacity:1;filter:none;clip-path:inset(0 0 0 0)}}
+@keyframes sweep{from{background-position:150% 0}to{background-position:-60% 0}}
+.entry{display:flex;justify-content:center;padding-block:0 64px;opacity:0;transform:translateY(10px);transition:opacity .9s .3s,transform .9s .3s}
+.hero.live .entry{opacity:1;transform:none}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:11px 26px;text-decoration:none;font-family:var(--f-head);font-weight:400;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;border:1px solid currentColor;transition:background .25s,color .25s,border-color .25s}
+.btn.on-dark{color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(4px)}
+.btn.on-dark:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn.solid{background:var(--al);border-color:var(--al);color:#fff}
+.btn.solid:hover{background:#a31926;border-color:#a31926}
+.btn.ink{color:var(--ink)}
+.btn.ink:hover{background:var(--ink);color:#fff}
+
+/* ===== ÜST ÇUBUK ===== */
+.bar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:12px;gap:16px}
+.bar nav{display:flex;gap:22px;flex-wrap:wrap}
+.bar nav a,.bar .right a{text-decoration:none;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:400;color:var(--ink-soft)}
+.bar nav a:hover,.bar .right a:hover{color:var(--al)}
+.bar .logo img{height:34px;width:auto;display:block;filter:invert(1)}
+.bar .right{display:flex;justify-content:flex-end;gap:22px}
+.bar .right a.ticket{color:var(--al);font-weight:500}
+
+section{padding-block:clamp(72px,10vw,128px)}
+
+/* Döndürülmüş bölüm adı */
+.side{display:grid;grid-template-columns:56px minmax(0,1fr);gap:clamp(16px,4vw,48px)}
+.side-label{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--f-head);font-weight:300;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--al);padding:.55em .3em;justify-self:center;align-self:start;white-space:nowrap}
+
+/* ===== HOŞGELDİNİZ ===== */
+.welcome{font-size:clamp(1.12rem,1.9vw,1.32rem);line-height:1.7;font-weight:400;max-width:62ch;margin:0 0 clamp(40px,6vw,72px)}
+.acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,36px)}
+.act{display:grid;align-content:start;gap:12px}
+.act .ph{aspect-ratio:4/3;max-width:100%;background:center/cover no-repeat var(--mist)}
+.act h3{font-size:1rem;font-weight:500;letter-spacing:.14em;margin-top:6px}
+.act p{margin:0;color:var(--ink-soft);font-size:.98rem}
+
+/* ===== TUANA ADIMLARI (kollar) ===== */
+#hosgeldiniz h4{font-family:var(--f-head);text-transform:uppercase;margin:0;line-height:1.15;text-wrap:balance}
+/* Ortak parçalar */
+#hosgeldiniz .ph{background:center/cover no-repeat var(--mist);max-width:100%}
+#hosgeldiniz .ph.empty{display:grid;place-items:center;color:#a9a9a4;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+#hosgeldiniz .kicker{font-size:.74rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--al)}
+#hosgeldiniz .kol-title{font-weight:300;font-size:clamp(2.4rem,6vw,4.6rem);letter-spacing:.06em;line-height:1}
+#hosgeldiniz .lede{margin:0;color:var(--ink-soft);max-width:44ch}
+#hosgeldiniz .grid12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,2.4vw,28px)}
+#hosgeldiniz .kol + .kol{margin-top:clamp(72px,10vw,128px)}
+
+/* ===== HALK OYUNU ===== */
+#hosgeldiniz .halk{background:var(--mist);padding:clamp(16px,3vw,36px) clamp(16px,3vw,36px) clamp(28px,4vw,48px)}
+#hosgeldiniz .halk .hero-ph{grid-column:1 / span 8;grid-row:1;aspect-ratio:16/10}
+#hosgeldiniz .halk .card{grid-column:7 / span 6;grid-row:1;align-self:end;margin-bottom:-56px;background:var(--paper);padding:clamp(24px,3.4vw,44px);display:grid;gap:14px;box-shadow:0 24px 60px rgba(25,25,27,.12);position:relative;z-index:1}
+#hosgeldiniz .halk .subs{margin-top:clamp(28px,4vw,44px);align-items:start}
+#hosgeldiniz .halk .subs-label{grid-column:1 / span 2;align-self:start;padding-top:4px;font-size:.72rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);line-height:1.6;border-top:2px solid var(--al);padding-top:10px}
+#hosgeldiniz .kol-sub{display:grid;gap:12px;align-content:start}
+#hosgeldiniz .kol-sub .ph{aspect-ratio:4/3}
+#hosgeldiniz .kol-sub h4{font-weight:500;font-size:1rem;letter-spacing:.14em;margin-top:6px}
+#hosgeldiniz .kol-sub p{margin:0;color:var(--ink-soft);font-size:.98rem;max-width:42ch}
+#hosgeldiniz .halk .s1{grid-column:2 / span 4}
+#hosgeldiniz .halk .s2{grid-column:7 / span 4;margin-top:clamp(32px,5vw,64px)}
+#hosgeldiniz .halk .kol-sub h4{font-size:.9rem}
+#hosgeldiniz .halk .kol-sub p{font-size:.92rem}
+
+/* ===== MODERN DANS ===== */
+#hosgeldiniz .modern .text{grid-column:1 / span 5;grid-row:1;align-self:center;display:grid;gap:18px}
+#hosgeldiniz .modern .main-ph{grid-column:6 / span 7;grid-row:1;aspect-ratio:4/3}
+#hosgeldiniz .styles{list-style:none;margin:6px 0 0;padding:0;border-top:1px solid var(--line)}
+#hosgeldiniz .styles li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-block:13px;border-bottom:1px solid var(--line);font-weight:400;font-size:clamp(1.05rem,1.8vw,1.25rem);letter-spacing:.1em;text-transform:uppercase;transition:color .25s,padding .25s}
+#hosgeldiniz .styles li::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--line);flex:none;transition:background .25s}
+#hosgeldiniz .styles li:hover{color:var(--al);padding-left:8px}
+#hosgeldiniz .styles li:hover::after{background:var(--al)}
+
+/* ===== FLAMENKO · SİRTAKİ · ORYANTAL (yan yana, sırayla sol/sağ) ===== */
+#hosgeldiniz .tone{background:var(--mist);padding:clamp(20px,3.4vw,44px)}
+#hosgeldiniz .feat .grid12{align-items:center}
+#hosgeldiniz .feat .text{display:grid;gap:16px;align-content:center}
+#hosgeldiniz .feat .kol-title{font-size:clamp(2.2rem,4.8vw,3.6rem)}
+#hosgeldiniz .f-flamenko .ph{grid-column:1 / span 5;aspect-ratio:3/4}
+#hosgeldiniz .f-flamenko .text{grid-column:7 / span 5}
+#hosgeldiniz .f-sirtaki .text{grid-column:2 / span 4;grid-row:1}
+#hosgeldiniz .f-sirtaki .ph{grid-column:6 / span 7;grid-row:1;aspect-ratio:4/3}
+#hosgeldiniz .f-oryantal .ph{grid-column:2 / span 6;aspect-ratio:1/1;background-position:50% 35%}
+#hosgeldiniz .f-oryantal .text{grid-column:9 / span 4}
+#hosgeldiniz .credit{margin:20px 0 0;font-size:.72rem;color:#9a9a96;letter-spacing:.04em}
+
+#hosgeldiniz .ph,#hosgeldiniz .kol-sub .ph{transition:transform .6s ease}
+#hosgeldiniz .kol-sub:hover .ph,#hosgeldiniz .feat:hover .ph{transform:scale(1.015)}
+@media (max-width:860px){
+  #hosgeldiniz .grid12{grid-template-columns:minmax(0,1fr);row-gap:20px}
+  #hosgeldiniz .halk .hero-ph,#hosgeldiniz .halk .card,#hosgeldiniz .halk .s1,#hosgeldiniz .halk .s2,#hosgeldiniz .modern .text,#hosgeldiniz .modern .main-ph,#hosgeldiniz .modern .small-ph,#hosgeldiniz .feat .ph,#hosgeldiniz .feat .text{grid-column:1;grid-row:auto;margin:0}
+  #hosgeldiniz .f-sirtaki .ph{grid-row:1}
+  #hosgeldiniz .halk .subs-label{grid-column:1}
+  #hosgeldiniz .halk .card{margin:-48px 16px 0;box-shadow:0 16px 40px rgba(25,25,27,.12)}
+  #hosgeldiniz .halk .subs{margin-top:48px;row-gap:40px}
+  #hosgeldiniz .modern .main-ph{grid-row:1}
+  #hosgeldiniz .modern .small-ph{display:none}
+  #hosgeldiniz .feat .grid12{row-gap:20px}
+}
+
+
+/* ===== TUANA ADIMLARI: açılır dikey şeritler ===== */
+#hosgeldiniz .dallar{list-style:none;margin:0;padding:0;display:flex;gap:10px;height:clamp(600px,80vh,760px)}
+#hosgeldiniz .dal{position:relative;flex:1 1 0;min-width:0;overflow:hidden;background:var(--night) var(--img) var(--pos)/cover no-repeat;transition:flex-grow .55s cubic-bezier(.2,.7,.2,1)}
+#hosgeldiniz .dal::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,16,18,.3),rgba(16,16,18,.78));transition:opacity .4s}
+#hosgeldiniz .dal.open{flex-grow:6}
+#hosgeldiniz .dal.open::before{opacity:0}
+#hosgeldiniz .dal-tab{position:absolute;inset:0;z-index:2;appearance:none;border:0;background:transparent;color:#fff;cursor:pointer;padding:0}
+#hosgeldiniz .dal.open .dal-tab{pointer-events:none}
+#hosgeldiniz .dal-name{position:absolute;left:50%;bottom:28px;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;font-family:var(--f-head);font-weight:300;font-size:clamp(1.05rem,1.6vw,1.4rem);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;transition:opacity .3s,color .2s}
+#hosgeldiniz .dal.open .dal-name{opacity:0}
+#hosgeldiniz .dal:not(.open) .dal-tab:hover .dal-name{color:#ff9aa3}
+#hosgeldiniz .dal:not(.open) .dal-tab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--al);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+#hosgeldiniz .dal:not(.open) .dal-tab:hover::after{transform:scaleX(1)}
+#hosgeldiniz .dal-body{position:absolute;left:0;top:0;bottom:0;width:min(66%,500px);z-index:3;padding:clamp(22px,2.8vw,40px);background:rgba(16,16,18,.92);color:#fff;display:grid;gap:11px;align-content:safe end;overflow:auto;opacity:0;visibility:hidden;transform:translateX(-12px);transition:opacity .3s,transform .3s,visibility 0s .3s}
+#hosgeldiniz .dal.open .dal-body{opacity:1;visibility:visible;transform:none;transition:opacity .4s .2s,transform .4s .2s,visibility 0s}
+#hosgeldiniz .dal-body .kicker{color:#ff8a94}
+#hosgeldiniz .dal-body .kol-title{font-size:clamp(1.8rem,3vw,2.8rem);color:#fff}
+#hosgeldiniz .dal-text{margin:0;color:rgba(255,255,255,.82);font-size:.95rem;line-height:1.6}
+#hosgeldiniz .dal-groups{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.92rem;font-weight:400}
+#hosgeldiniz .dal-groups li::before{content:"– ";color:#ff8a94}
+#hosgeldiniz .dal-subs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px;border-top:1px solid rgba(255,255,255,.2);padding-top:14px}
+#hosgeldiniz .dal-subs h4{font-weight:500;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin:0}
+#hosgeldiniz .dal-subs p{margin:4px 0 0;font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.72)}
+@media (max-width:860px){
+  /* Telefon/tablet: üst üste bantlar; dokunulan bant yumuşakça açılır, diğerleri kapanır (bilgisayardaki şeritlerin dikey hali) */
+  #hosgeldiniz .dallar{flex-direction:column;height:auto;gap:8px}
+  #hosgeldiniz .dal{flex:none;max-height:64px;transition:max-height .6s cubic-bezier(.2,.7,.2,1)}
+  #hosgeldiniz .dal.open{max-height:1000px}
+  #hosgeldiniz .dal::before{opacity:1;background:linear-gradient(90deg,rgba(16,16,18,.82),rgba(16,16,18,.45));transition:background .4s}
+  #hosgeldiniz .dal.open::before{opacity:1;background:linear-gradient(180deg,rgba(16,16,18,0) 0,rgba(16,16,18,.15) clamp(110px,34vw,190px),rgba(16,16,18,.97) calc(clamp(110px,34vw,190px) + 70px))}
+  #hosgeldiniz .dal-tab{height:64px;bottom:auto}
+  #hosgeldiniz .dal-name{left:20px;right:56px;bottom:auto;top:0;height:64px;display:flex;align-items:center;transform:none;writing-mode:horizontal-tb;font-size:1rem;letter-spacing:.22em}
+  #hosgeldiniz .dal-tab::before{content:"+";position:absolute;right:20px;top:0;height:64px;display:flex;align-items:center;font-family:var(--f-head);font-weight:300;font-size:1.6rem;color:#fff}
+  #hosgeldiniz .dal:not(.open) .dal-tab:hover::after{transform:scaleX(0)}
+  #hosgeldiniz .dal.open .dal-tab::before{opacity:0}
+  #hosgeldiniz .dal-body{position:relative;width:auto;background:none;padding:calc(clamp(110px,34vw,190px) + 24px) 20px 24px;align-content:start;overflow:visible;transform:translateY(8px)}
+  #hosgeldiniz .dal.open .dal-body{transform:none}
+  #hosgeldiniz .dal-body .kol-title{font-size:1.9rem}
+  #hosgeldiniz .dal-subs{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ===== HAKKIMIZDA ===== */
+.about{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
+.lead{font-size:clamp(1.25rem,2.2vw,1.55rem);line-height:1.5;font-weight:400;margin:0 0 28px;max-width:34ch}
+.lead b{font-weight:500;color:var(--al)}
+.about p{margin:0 0 18px;max-width:64ch;color:var(--ink-soft)}
+.stats{display:grid;position:sticky;top:96px}
+.stat{padding-block:24px;border-top:1px solid var(--line);display:grid}
+.stat:last-child{border-bottom:1px solid var(--line)}
+.stat b{font-family:var(--f-head);font-weight:300;font-size:clamp(3rem,6vw,4.4rem);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;color:var(--al);font-weight:500}
+
+#hakkimizda .stat{position:relative;padding-block:18px}
+#hakkimizda .stat b{font-size:clamp(2.4rem,4.4vw,3.4rem)}
+#hakkimizda .stat span{letter-spacing:.22em;line-height:1.4}
+#hakkimizda .has-pop{cursor:pointer;outline-offset:6px}
+#hakkimizda .has-pop span::after{content:" +";color:var(--ink-soft);font-weight:400}
+#hakkimizda .has-pop:hover b,#hakkimizda .has-pop:focus-within b,#hakkimizda .has-pop.open b{color:var(--al)}
+#hakkimizda .pop{display:none;position:absolute;right:calc(100% + 28px);top:-8px;z-index:15;width:min(520px,56vw);max-height:min(70vh,560px);overflow:auto;background:var(--paper);border-top:3px solid var(--al);box-shadow:0 24px 60px rgba(25,25,27,.18);padding:20px 24px 24px;cursor:auto;overscroll-behavior:contain}
+#hakkimizda .pop::before{content:"";position:absolute;right:-28px;top:0;width:28px;height:100%}
+#hakkimizda .has-pop:hover .pop,#hakkimizda .has-pop:focus-within .pop,#hakkimizda .has-pop.open .pop{display:block;animation:popin .22s ease both}
+@keyframes popin{from{opacity:.4;transform:translateX(8px)}to{opacity:1;transform:none}}
+#hakkimizda .pop h4{margin:0 0 12px;font-family:var(--f-head);font-weight:500;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--al)}
+#hakkimizda .pop-intro{margin:0 0 12px;font-size:.88rem;color:var(--ink-soft)}
+#hakkimizda .yr{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding-block:8px;border-top:1px solid var(--line)}
+#hakkimizda .yr b{font-family:var(--f-head);font-weight:500;font-size:.95rem;line-height:1.5;color:var(--ink);font-variant-numeric:tabular-nums}
+#hakkimizda .yr ul{margin:0;padding:0;list-style:none;display:grid;gap:3px}
+#hakkimizda .yr li{font-size:.9rem;line-height:1.5;color:var(--ink-soft)}
+
+/* Hakkımızda rakamları (55 Ülke sağda) */
+#hakkimizda .stats{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr);grid-template-rows:repeat(4,auto);column-gap:16px}
+#hakkimizda .stat{position:relative;padding-block:16px;border-top:1px solid var(--line);display:grid;grid-column:1}
+#hakkimizda .stat:nth-child(4){border-bottom:1px solid var(--line)}
+#hakkimizda .stat b{font-family:var(--f-head);font-weight:300;font-size:clamp(2.2rem,4vw,3.1rem);line-height:1;font-variant-numeric:tabular-nums;transition:color .2s}
+#hakkimizda .stat span{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--al);font-weight:500;line-height:1.4}
+
+/* 55 Ülke: dört başlığın tamamını kapsayan dikey blok */
+#hakkimizda .stat.country{grid-column:2;grid-row:1 / span 4;border:0;background:var(--al);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px 8px;text-align:center}
+#hakkimizda .stat.country b{font-size:clamp(3.6rem,7vw,5.6rem);color:#fff}
+#hakkimizda .stat.country span{color:#fff;font-size:.82rem;letter-spacing:.42em;padding-left:.42em}
+
+#hakkimizda .has-pop{cursor:pointer;outline-offset:6px}
+#hakkimizda .has-pop span::after{content:" +";color:var(--ink-soft);font-weight:400}
+#hakkimizda .has-pop:hover b,#hakkimizda .has-pop:focus-within b,#hakkimizda .has-pop.open b{color:var(--al)}
+#hakkimizda .pop{display:none;position:absolute;right:calc(100% + 28px);top:-8px;z-index:15;width:min(520px,56vw);max-height:min(70vh,560px);overflow:auto;background:var(--paper);border-top:3px solid var(--al);box-shadow:0 24px 60px rgba(25,25,27,.18);padding:20px 24px 24px;cursor:auto;overscroll-behavior:contain}
+#hakkimizda .pop::before{content:"";position:absolute;right:-28px;top:0;width:28px;height:100%}
+#hakkimizda .has-pop:hover .pop,#hakkimizda .has-pop:focus-within .pop,#hakkimizda .has-pop.open .pop{display:block;animation:popin .22s ease both}
+@keyframes popin{from{opacity:.4;transform:translateX(8px)}to{opacity:1;transform:none}}
+#hakkimizda .pop h4{margin:0 0 12px;font-family:var(--f-head);font-weight:500;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--al)}
+#hakkimizda .pop-intro{margin:0 0 12px;font-size:.88rem;color:var(--ink-soft)}
+#hakkimizda .yr{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;padding-block:8px;border-top:1px solid var(--line)}
+#hakkimizda .yr b{font-family:var(--f-head);font-weight:500;font-size:.95rem;line-height:1.5;color:var(--ink);font-variant-numeric:tabular-nums}
+#hakkimizda .yr ul{margin:0;padding:0;list-style:none;display:grid;gap:3px}
+#hakkimizda .yr li{font-size:.9rem;line-height:1.5;color:var(--ink-soft)}
+
+
+/* ===== SIRADAKİ GÖSTERİ (koyu bant) ===== */
+.show-band{background:var(--night);color:#fff}
+.show{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.poster{display:grid;justify-items:center;gap:4px;padding-block:24px}
+.poster img{width:min(260px,64%);height:auto}
+.poster .name{font-family:var(--f-script);font-size:clamp(5rem,10vw,7.5rem);line-height:.95}
+.show-info{display:grid;gap:26px}
+.show-info h2{font-size:.85rem;letter-spacing:.3em;color:rgba(255,255,255,.65)}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;margin:0}
+.facts div{display:grid}
+.facts dt{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.facts dd{margin:0;font-weight:400;font-size:1.05rem}
+.countdown{display:flex;border:1px solid rgba(255,255,255,.2);justify-self:start}
+.countdown div{padding:12px 20px;text-align:center}
+.countdown div + div{border-left:1px solid rgba(255,255,255,.2)}
+.countdown b{display:block;font-family:var(--f-head);font-weight:300;font-size:2rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.countdown span{font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.show-info .btn{justify-self:start}
+
+/* ===== EĞİTMEN KADROMUZ ===== */
+#egitmenler{--card:clamp(140px,15vw,180px)}
+#egitmenler h3{text-transform:uppercase}
+#egitmenler .kicker{font-size:.74rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--al)}
+/* ===== GENEL SANAT YÖNETMENİ ===== */
+#egitmenler .director{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,64px);align-items:center;background:var(--mist);padding:clamp(20px,3.4vw,40px)}
+#egitmenler .director .ph{aspect-ratio:4/5;width:min(100%,380px);justify-self:center;overflow:hidden;background:var(--paper)}
+#egitmenler .director .ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .6s,transform .8s}
+#egitmenler .director:hover .ph img{filter:none;transform:scale(1.03)}
+#egitmenler .director .info{display:grid;gap:14px}
+#egitmenler .director .name{font-family:var(--f-head);font-weight:300;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.05;letter-spacing:.02em;text-transform:none}
+#egitmenler .director .name b{font-weight:500;letter-spacing:.06em}
+#egitmenler .director .role{font-size:.85rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
+#egitmenler .director .bar{width:72px;height:3px;background:var(--al)}
+
+/* ===== SEKMELER ===== */
+#egitmenler .chips{display:flex;flex-wrap:wrap;gap:10px;margin:clamp(48px,7vw,80px) 0 clamp(36px,5vw,56px)}
+#egitmenler .chip{appearance:none;border:1px solid var(--ink);background:transparent;color:var(--ink);font:inherit;font-size:.8rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:9px 18px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+#egitmenler .chip:hover{transform:translateY(-2px)}
+#egitmenler .chip[aria-pressed="true"]{background:var(--al);border-color:var(--al);color:#fff}
+#egitmenler .chip .n{opacity:.6;margin-left:6px;font-variant-numeric:tabular-nums}
+
+/* ===== KOL GRUPLARI ===== */
+#egitmenler .groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(48px,7vw,88px) clamp(20px,4vw,48px)}
+#egitmenler .group{display:grid;gap:22px;align-content:start}
+#egitmenler .group.wide{grid-column:1 / -1}
+#egitmenler .group-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;border-bottom:1px solid var(--line);padding-bottom:14px}
+#egitmenler .group-head .t{display:grid;gap:4px}
+#egitmenler .group-head h3{font-weight:300;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:.08em}
+#egitmenler .group-head .count{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+#egitmenler .sublabel{font-size:.74rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:12px;margin-top:8px}
+#egitmenler .sublabel::after{content:"";flex:1;height:1px;background:var(--line)}
+
+#egitmenler .cards{--gap:clamp(12px,2vw,20px);display:flex;flex-wrap:wrap;gap:var(--gap);align-items:flex-start}
+#egitmenler .group.wide .cards{max-width:calc(4 * var(--card) + 3 * var(--gap))}
+#egitmenler .cards .person:nth-child(even){margin-top:24px}
+
+#egitmenler .person{margin:0;display:grid;gap:10px;width:min(var(--card), calc(50% - var(--gap) / 2));animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+#egitmenler .person .ph{position:relative;aspect-ratio:4/5;max-width:100%;overflow:hidden;background:var(--mist)}
+#egitmenler .person img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(1);transition:filter .5s,transform .7s}
+#egitmenler .person .mono{position:absolute;inset:0;display:grid;place-items:center;font-weight:300;font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:.08em;color:var(--al);background:
+  repeating-linear-gradient(135deg,transparent 0 14px,rgba(200,32,47,.05) 14px 15px),var(--mist)}
+#egitmenler .person .ph::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--al);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+#egitmenler .person:hover .ph::after{transform:scaleX(1)}
+#egitmenler .person:hover img{filter:none;transform:scale(1.05)}
+#egitmenler .person:hover{transform:translateY(-4px)}
+#egitmenler .person{transition:transform .35s ease}
+#egitmenler .person figcaption{display:grid;gap:2px}
+#egitmenler .person .nm{font-weight:400;font-size:.92rem;letter-spacing:.02em;line-height:1.3}
+#egitmenler .person .nm b{font-weight:500;letter-spacing:.06em}
+#egitmenler .person .rl{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+
+
+#egitmenler .tone{background:var(--mist);padding:clamp(18px,3vw,32px)}
+#egitmenler .tone .person .ph,#egitmenler .tone .person .mono{background-color:var(--paper)}
+#egitmenler .tone .person .mono{background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(200,32,47,.05) 14px 15px),var(--paper)}
+#egitmenler .match{margin-top:clamp(64px,9vw,110px);display:grid;gap:18px;border:2px dashed var(--line);padding:clamp(16px,3vw,28px)}
+#egitmenler .match-p{margin:0;color:var(--ink-soft);font-size:.92rem;max-width:62ch}
+#egitmenler .note{margin:clamp(40px,6vw,64px) 0 0;font-size:.72rem;color:#9a9a96;letter-spacing:.04em}
+
+
+@keyframes rise{from{transform:translateY(18px)}to{transform:none}}
+
+/* ===== ŞUBELER ===== */
+.branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line);border:1px solid var(--line)}
+.branch{background:var(--paper);padding:clamp(28px,4vw,44px);display:grid;justify-items:center;gap:18px}
+.branch b{font-family:var(--f-head);font-weight:400;font-size:clamp(1.3rem,2.4vw,1.7rem);letter-spacing:.24em;padding-left:.24em;text-transform:uppercase}
+.branch img{width:min(170px,55%);height:auto;filter:invert(1);transition:transform .3s}
+a.branch{text-decoration:none;color:inherit;transition:background .25s}
+a.branch:hover{background:var(--mist)}
+a.branch:hover img{transform:scale(1.04)}
+a.branch:hover b{color:var(--al)}
+.foot h4.adres{scroll-margin-top:96px;transition:color .4s}
+.foot h4.adres.flash{color:var(--al)}
+
+/* ===== GALERİ (iki küçük | büyük kare | iki küçük) ===== */
+.gv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) minmax(0,1fr);gap:clamp(10px,2.5vw,32px);align-items:start}
+.gv .col{display:grid;gap:clamp(10px,2.5vw,32px)}
+.gv .t{aspect-ratio:1;max-width:100%;background:center/cover no-repeat var(--mist);transition:filter .4s}
+.gv .t:hover{filter:brightness(1.06)}
+.gv + .gv{margin-top:clamp(10px,2.5vw,32px)}
+.gv.second{align-items:start}
+.gv .t9{background-image:url(../img/g-mavi.jpg);background-position:30% 50%}.gv .t10{background-image:url(../img/g-cicek.jpg);background-position:48% 40%}.gv .t11{background-image:url(../img/g-beyaz.jpg)}
+.gv .t12{background-image:url(../img/g-mor2.jpg);background-position:70% 50%}.gv .t13{background-image:url(../img/g-erkek.jpg)}.gv .t14{background-image:url(../img/g-vaksa.jpg);background-position:50% 72%}.gv .t15{background-image:url(../img/g-diz.jpg);background-position:40% 50%}
+.gv.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gv.two .t{aspect-ratio:3/2}
+
+/* ===== GALERİ: sekmeler + gösteriler ===== */
+#galeri .kicker{font-size:.74rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--al)}
+#galeri h3,#galeri h4{font-family:var(--f-head);text-transform:uppercase;margin:0;line-height:1.15}
+/* Sekmeler (eğitmenlerdeki gibi) */
+#galeri .tabs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 clamp(32px,5vw,48px)}
+#galeri .tab{appearance:none;border:1px solid var(--ink);background:transparent;color:var(--ink);font:inherit;font-size:.8rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:9px 20px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+#galeri .tab:hover{transform:translateY(-2px)}
+#galeri .tab[aria-selected="true"]{background:var(--al);border-color:var(--al);color:#fff}
+#galeri .panel[hidden]{display:none}
+
+/* ===== GÖSTERİLER ===== */
+#galeri .feature{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;background:var(--night);color:#fff;padding:clamp(16px,3vw,32px)}
+#galeri .feature .info{display:grid;gap:12px}
+#galeri .feature h3{font-weight:300;font-size:clamp(1.8rem,3.6vw,2.8rem);letter-spacing:.06em}
+#galeri .feature p{margin:0;color:rgba(255,255,255,.72);max-width:40ch}
+#galeri .feature .meta{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+
+#galeri .vid{position:relative;display:block;aspect-ratio:16/9;max-width:100%;background:center/cover no-repeat #222;overflow:hidden;text-decoration:none;color:#fff}
+#galeri .vid::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.55));transition:background .3s}
+#galeri .vid .play{position:absolute;left:50%;top:50%;z-index:1;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--al);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:transform .3s}
+#galeri .vid .play::before{content:"";margin-left:5px;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff}
+#galeri .vid:hover .play{transform:scale(1.1)}
+#galeri .vid:hover::after{background:linear-gradient(180deg,rgba(200,32,47,.12),rgba(0,0,0,.6))}
+#galeri .vid .dur{position:absolute;right:10px;bottom:10px;z-index:1;font-size:.72rem;letter-spacing:.1em;background:rgba(0,0,0,.6);padding:2px 8px}
+
+#galeri .videos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,32px) clamp(14px,2.4vw,28px);margin-top:clamp(36px,5vw,56px)}
+#galeri .vcard{display:grid;gap:10px;align-content:start}
+#galeri .vcard:nth-child(3n+2){margin-top:28px}
+#galeri .vcard .vid .play{width:48px;height:48px;margin:-24px 0 0 -24px}
+#galeri .vcard .vid .play::before{border-width:8px 0 8px 13px;margin-left:4px}
+#galeri .vcard h4{font-weight:500;font-size:.95rem;letter-spacing:.1em}
+#galeri .vcard .meta{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+#galeri .more{margin-top:clamp(36px,5vw,56px);display:flex;justify-content:center}
+#galeri .btn{display:inline-flex;align-items:center;gap:10px;padding:11px 24px;text-decoration:none;font-size:.82rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;border:1px solid var(--ink);color:var(--ink);transition:background .25s,color .25s}
+#galeri .btn:hover{background:var(--ink);color:#fff}
+#galeri .note{margin:28px 0 0;font-size:.72rem;color:#9a9a96;letter-spacing:.04em}
+
+
+@media (max-width:860px){
+  #galeri .feature{grid-template-columns:minmax(0,1fr)}
+  #galeri .videos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #galeri .vcard:nth-child(3n+2){margin-top:0}
+  #galeri .vcard:nth-child(even){margin-top:20px}
+}
+@media (max-width:520px){
+  #galeri .videos{grid-template-columns:minmax(0,1fr)}
+  #galeri .vcard:nth-child(even){margin-top:0}
+}
+
+/* ===== KATIL (kırmızı bant + branş kayıt kartları) ===== */
+#katil.join-band{background:var(--al);color:#fff;padding-block:clamp(48px,7vw,80px)}
+#katil .head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 32px}
+#katil .head h2{font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);text-transform:uppercase;letter-spacing:.12em}
+#katil .head .sub{margin:10px 0 0;font-weight:400;font-size:clamp(1.05rem,2.2vw,1.45rem);text-transform:uppercase;letter-spacing:.16em}
+#katil .contact{display:inline-flex;align-items:center;gap:10px;padding:11px 24px;text-decoration:none;color:#fff;border:1px solid #fff;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;transition:background .25s,color .25s}
+#katil .contact:hover{background:#fff;color:var(--al)}
+
+/* Branş kartları: beyaz zemin */
+#katil .forms{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,1.6vw,18px)}
+#katil .form{position:relative;display:grid;grid-template-rows:auto 1fr auto;gap:14px;min-height:230px;padding:clamp(18px,2.2vw,24px);border:0;background:var(--paper);text-decoration:none;color:var(--ink);transition:transform .3s,box-shadow .3s,background .3s,color .3s}
+#katil .form .k{font-size:.66rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--al)}
+#katil .form h3{font-weight:400;font-size:clamp(1.2rem,1.9vw,1.55rem);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+#katil .form ul{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.84rem;line-height:1.45;color:var(--ink-soft)}
+#katil .form ul li::before{content:"– ";color:var(--al)}
+#katil .form .go{display:flex;align-items:center;justify-content:space-between;font-size:.74rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;border-top:1px solid var(--line);padding-top:12px;color:var(--al)}
+#katil .form .go::after{content:"→";font-size:1.1rem;letter-spacing:0;transition:transform .3s}
+#katil .form:hover,#katil .form:focus-visible{transform:translateY(-4px);box-shadow:0 18px 40px rgba(60,6,12,.35)}
+#katil .form:hover .go::after{transform:translateX(6px)}
+#katil .form.halk{background:var(--mist)}
+#katil .form .tag{position:absolute;top:12px;right:12px;font-size:.6rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:1px dashed var(--ink-soft);color:var(--ink-soft);padding:1px 6px}
+#katil .note{margin:22px 0 0;font-size:.74rem;color:rgba(255,255,255,.8);letter-spacing:.03em;max-width:70ch}
+
+#katil .forms{margin-top:clamp(28px,4vw,44px)}
+#katil h3{font-family:var(--f-head);margin:0;line-height:1.15}
+#katil :focus-visible{outline-color:#fff}
+@media (max-width:980px){#katil .forms{grid-template-columns:repeat(2,minmax(0,1fr))}#katil .form.halk{grid-column:1 / -1;min-height:0}}
+@media (max-width:520px){#katil .forms{grid-template-columns:minmax(0,1fr)}#katil .form{min-height:0}}
+
+
+/* Kayıt kartları: dalın fotoğrafı silik, üstünde koyu örtü (Tuana Adımları şeritleriyle aynı dil) */
+#katil .form,#katil .form.halk{isolation:isolate;overflow:hidden;background:var(--night) var(--img) var(--pos)/cover no-repeat;color:#fff}
+#katil .form::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(16,16,18,.72),rgba(16,16,18,.9));transition:background .4s}
+#katil .form:hover::before,#katil .form:focus-visible::before{background:linear-gradient(180deg,rgba(16,16,18,.5),rgba(16,16,18,.86))}
+#katil .form .k{color:#ff8a94}
+#katil .form h3{color:#fff}
+#katil .form ul{color:rgba(255,255,255,.82)}
+#katil .form ul li::before{color:#ff8a94}
+#katil .form .go{color:#fff;border-top-color:rgba(255,255,255,.25)}
+#katil .form:hover,#katil .form:focus-visible{box-shadow:0 18px 40px rgba(40,4,8,.45)}
+
+/* ===== İLETİŞİM ===== */
+footer{background:var(--night);color:rgba(255,255,255,.8);padding-block:72px 36px}
+.foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.2fr);gap:40px;align-items:start}
+.foot .brand img{width:170px;height:auto;margin-bottom:18px}
+.foot h4{margin:0 0 10px;font-family:var(--f-head);font-weight:500;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:#fff}
+.foot p{margin:0 0 6px}
+.social{display:flex;flex-wrap:wrap;gap:10px}
+.social a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border:1px solid rgba(255,255,255,.25);padding:6px 12px;font-size:.84rem}
+.social a:hover{border-color:#fff;color:#fff}
+.social svg{width:16px;height:16px;fill:currentColor}
+.map{aspect-ratio:4/3;max-width:100%;border:1px solid rgba(255,255,255,.18);background:
+  repeating-linear-gradient(0deg,transparent 0 38px,rgba(255,255,255,.05) 38px 39px),
+  repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.05) 38px 39px),#18181b;
+  display:grid;place-items:center;text-align:center;color:rgba(255,255,255,.6);font-size:.85rem;padding:16px;text-decoration:none}
+.map:hover{border-color:#fff}
+.map .pin{width:14px;height:14px;border-radius:50% 50% 50% 0;background:var(--al);transform:rotate(-45deg);margin:0 auto 10px}
+.foot a.web{color:#fff;text-decoration:underline;text-decoration-color:var(--al);text-underline-offset:4px;display:inline-block;padding-block:6px}
+.foot a.web:hover{color:var(--al)}
+.copy{margin-top:56px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:.76rem;color:rgba(255,255,255,.5);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media (max-width:860px){
+  .bar .wrap{grid-template-columns:auto 1fr;}
+  .bar nav{display:none}
+  .bar .logo{justify-self:start}
+  .side{grid-template-columns:minmax(0,1fr)}
+  .side-label{writing-mode:horizontal-tb;transform:none;justify-self:start;font-size:1.3rem;padding:.25em .6em}
+  .about,.show,.foot{grid-template-columns:minmax(0,1fr)}
+  #hakkimizda .stats{position:static}
+  #hakkimizda .stat.country b{font-size:clamp(3rem,14vw,4.4rem)}
+  #hakkimizda .pop{position:static;grid-column:1 / -1;width:auto;max-height:55vh;margin-top:14px;box-shadow:none;border:1px solid var(--line);border-top:3px solid var(--al)}
+  #hakkimizda .has-pop:hover .pop,#hakkimizda .has-pop:focus-within .pop{display:none}
+  #hakkimizda .has-pop.open .pop{display:block}
+  .stat{border-bottom:1px solid var(--line)}
+  .stat span{letter-spacing:.16em}
+  .branches{grid-template-columns:minmax(0,1fr)}
+  .acts{grid-template-columns:minmax(0,1fr)}
+
+  #egitmenler .director{grid-template-columns:minmax(0,1fr)}
+  #egitmenler .director .ph{max-width:340px}
+  #egitmenler .groups{grid-template-columns:minmax(0,1fr)}
+  #egitmenler{--card:min(200px,calc((100vw - 46px) / 2))}
+  #egitmenler .cards{--gap:14px}
+
+}
+
+/* ===== GERÇEK SİTE EKLERİ ===== */
+body{margin:0}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--al);color:#fff;padding:8px 14px;text-decoration:none}
+.skip:focus{left:12px}
+section[id],footer[id],div[id="katil"]{scroll-margin-top:64px}
+.menu-btn{display:none;appearance:none;background:none;border:0;padding:8px;cursor:pointer;justify-self:end;width:40px;height:40px;position:relative}
+.menu-btn span{position:absolute;left:9px;right:9px;height:2px;background:var(--ink);transition:transform .3s,opacity .3s}
+.menu-btn span:nth-child(1){top:13px}.menu-btn span:nth-child(2){top:19px}.menu-btn span:nth-child(3){top:25px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.bar .mnav{display:grid;border-top:1px solid var(--line);background:#fff;padding:6px max(16px,env(safe-area-inset-left,0px)) 14px}
+.bar .mnav[hidden]{display:none}
+.bar .mnav a{text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line);font-size:.86rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.bar .mnav a.ticket{color:var(--al);font-weight:500;border-bottom:0}
+.map-box{display:grid;gap:10px}
+.map-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.map-tab{appearance:none;min-height:44px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font:inherit;font-family:var(--f-head);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s}
+.map-tab:hover{border-color:#fff}
+.map-tab[aria-pressed="true"]{background:var(--al);border-color:var(--al)}
+.map-frame{width:100%;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.18);display:block;filter:grayscale(.35) contrast(1.05);background:#18181b}
+.map-link{justify-self:start;text-decoration:none;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;border-bottom:1px solid var(--al);padding-bottom:2px}
+.map-link:hover{color:var(--al)}
+.gv .t{appearance:none;border:0;padding:0;cursor:zoom-in;display:block;width:100%}
+dialog.lb,dialog.vd{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;height:100dvh;margin:0;overflow:hidden}
+dialog.lb::backdrop,dialog.vd::backdrop{background:rgba(10,10,12,.92)}
+dialog.lb[open],dialog.vd[open]{display:grid;place-items:center}
+.lb-img{max-width:min(92vw,1400px);max-height:86vh;max-height:86dvh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb-close{position:fixed;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));z-index:2;width:44px;height:44px;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.35);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
+.lb-nav{position:fixed;top:50%;transform:translateY(-50%);z-index:2;width:48px;height:64px;border:0;background:rgba(0,0,0,.35);color:#fff;font-size:2.2rem;cursor:pointer}
+.lb-nav.prev{left:max(8px,env(safe-area-inset-left,0px))}.lb-nav.next{right:max(8px,env(safe-area-inset-right,0px))}
+.lb-close:hover,.lb-nav:hover{background:var(--al);border-color:var(--al)}
+.vd-frame{width:min(92vw,calc(86vh * 16 / 9),1280px);aspect-ratio:16/9;background:#000}
+.vd-frame iframe{width:100%;height:100%;border:0;display:block}
+
+/* ===== TELEFON UYUMU (iOS + Android) ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html:has(dialog[open]){overflow:hidden}
+.bar{-webkit-backdrop-filter:blur(8px)}
+.btn.on-dark{-webkit-backdrop-filter:blur(4px)}
+.hero{min-height:100vh;min-height:min(100svh,920px)}
+@supports not (container-type:inline-size){.year{font-size:calc(min(380px,66vw) * .1)}}
+footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
+/* Dikey telefonda dikey video ekranı tamamen kaplar */
+@media (orientation:portrait) and (max-width:860px){
+  .hero{min-height:100vh;min-height:100svh}
+  .hero .bg{object-fit:cover;object-position:50% 50%}
+}
+/* Bilet satışı uyarısı */
+dialog.notice{border:0;padding:0;background:transparent;max-width:min(92vw,460px);width:100%}
+dialog.notice::backdrop{background:rgba(10,10,12,.72)}
+.notice-card{background:#fff;color:var(--ink);border-top:4px solid var(--al);padding:28px 26px 24px;display:grid;gap:12px;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.notice-k{margin:0;font-family:var(--f-head);font-size:.74rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--al)}
+.notice-card h2{font-family:var(--f-head);font-weight:400;font-size:1.35rem;line-height:1.35;letter-spacing:.02em;text-transform:none;margin:0}
+.notice-card p{margin:0;color:var(--ink-soft);font-size:.95rem}
+.notice-ok{justify-self:end;margin-top:6px;appearance:none;min-height:44px;padding:0 26px;border:0;background:var(--al);color:#fff;font:inherit;font-family:var(--f-head);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+.notice-ok:hover{background:#a31926}
+/* Ses düğmesi */
+.sound{position:absolute;right:max(20px,env(safe-area-inset-right,0px));bottom:max(22px,env(safe-area-inset-bottom,0px));z-index:3;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(16,16,18,.35);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:#fff;font:inherit;font-family:var(--f-head);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .9s ease,transform .9s ease,background .25s,border-color .25s}
+.hero.e-on .sound{opacity:1;transform:none}
+.sound:hover{background:var(--al);border-color:var(--al)}
+.sound svg{width:20px;height:20px;fill:currentColor}
+.sound .i-on{display:none}
+.sound[aria-pressed="true"] .i-on{display:block}
+.sound[aria-pressed="true"] .i-off{display:none}
+@media (max-width:520px){.sound .lbl{display:none}.sound{padding:0;width:44px;justify-content:center}}
+/* Açılış akışı: önce logo, sonra video, sonra 25. YIL, en son Kulübü Keşfet */
+.hero .bg{opacity:0;transition:opacity 1.2s ease}
+.hero.v-on .bg{opacity:1}
+.hero .year{opacity:0;transition:opacity 1s ease}
+.hero.y-on .year{opacity:1}
+.hero .entry{opacity:0;transform:translateY(10px);transition:opacity .9s ease,transform .9s ease}
+.hero.e-on .entry{opacity:1;transform:none}
+/* Yatay telefonda logo ve düğme ekrana sığsın */
+@media (orientation:landscape) and (max-height:520px){
+  .hero{min-height:100vh;min-height:100svh}
+  .center{padding-top:20px}
+  .logo-wrap{width:min(380px,66vw,calc(52svh * 900 / 440))}
+  .entry{padding-bottom:20px}
+}
+/* Galeri telefonda: büyük fotoğraf üstte tam genişlik, küçükler ikişerli */
+@media (max-width:600px){
+  .gv{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .gv .col{display:contents}
+  .gv > .t{grid-column:1 / -1;order:-1}
+  .gv.two > .t{order:0}
+  .gv + .gv{margin-top:10px}
+}
+@media (max-width:1000px){
+  .bar .wrap{grid-template-columns:auto 1fr auto}
+  .bar nav{display:none}
+  .bar .logo{justify-self:start}
+  .bar .right{display:none}
+  .menu-btn{display:block}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .hero .logo-wrap img{animation:reveal 1.8s cubic-bezier(.2,.7,.2,1) both!important}
+  .hero .logo-wrap .shine{animation:sweep 1.4s ease-in-out 1.5s both!important}
+  .hero .bg{transition:opacity 1.2s ease!important}
+  .hero .year{transition:opacity 1s ease!important}
+  .hero .entry{transition:opacity .9s ease,transform .9s ease!important}
+  html{scroll-behavior:auto}
+}
+/* Dil seçeneği */
+.hero-lang{position:absolute;top:max(18px,env(safe-area-inset-top,0px));right:max(20px,env(safe-area-inset-right,0px));z-index:3;display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 14px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(16,16,18,.35);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:#fff;text-decoration:none;font-family:var(--f-head);font-size:.74rem;letter-spacing:.18em;opacity:0;transition:opacity .9s ease,background .25s,border-color .25s}
+.hero.e-on .hero-lang{opacity:1}
+.hero-lang:hover{background:var(--al);border-color:var(--al)}
+.bar .right a.lang{padding-left:18px;border-left:1px solid var(--line)}
+.bar .lang-m{display:none;text-decoration:none;font-size:.78rem;letter-spacing:.16em;color:var(--ink-soft);padding:10px 6px;justify-self:end}
+@media (max-width:1000px){
+  .bar .wrap{grid-template-columns:auto 1fr auto auto}
+  .bar .lang-m{display:inline-block}
+}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#hosgeldiniz">Skip to content</a>
+
+<header class="hero" id="top" lang="en">
+  <video class="bg" id="bgVideo" muted loop playsinline preload="none" poster="../img/kapak.jpg" aria-hidden="true"></video>
+  <div class="center">
+    <h1 class="logo-wrap">
+      <img src="../img/logo-beyaz-en.png" alt="Tuana Art Club" width="900" height="440">
+      <span class="shine" aria-hidden="true"></span>
+      <span class="year" id="year"><span id="ordinal">25th</span> YEAR</span>
+    </h1>
+  </div>
+  <div class="entry">
+    <a class="btn on-dark" href="#hosgeldiniz">Discover the Club</a>
+  </div>
+  <a class="hero-lang" href="../" hreflang="tr" lang="tr" aria-label="Türkçe">TR</a>
+  <button class="sound" id="soundBtn" type="button" aria-pressed="false" aria-label="Turn sound on">
+    <svg class="i-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9l4 6M21 9l-4 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <svg class="i-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <span class="lbl">Turn sound on</span>
+  </button>
+</header>
+
+<div class="bar" lang="en">
+  <div class="wrap">
+    <nav aria-label="Main menu">
+      <a href="#hakkimizda">About Us</a>
+      <a href="#gosteri">Performance</a>
+      <a href="#egitmenler">Instructors</a>
+      <a href="#galeri">Gallery</a>
+    </nav>
+    <a class="logo" href="#top" aria-label="Back to top"><img src="../img/logo-beyaz-en.png" alt="Tuana Art Club" width="70" height="34"></a>
+    <div class="right">
+      <a class="ticket" href="https://bilet.tuanasanatkulubu.com" target="_blank" rel="noopener">Buy Tickets</a>
+      <a href="#subeler">Branches</a>
+      <a href="#iletisim">Contact</a>
+      <a class="lang" href="../" hreflang="tr" lang="tr" aria-label="Türkçe">TR</a>
+    </div>
+    <a class="lang-m" href="../" hreflang="tr" lang="tr" aria-label="Türkçe">TR</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile menu" hidden>
+    <a href="#hosgeldiniz">Tuana Steps</a>
+    <a href="#hakkimizda">About Us</a>
+    <a href="#gosteri">Performance</a>
+    <a href="#egitmenler">Instructors</a>
+    <a href="#subeler">Branches</a>
+    <a href="#galeri">Gallery</a>
+    <a href="#katil">Join</a>
+    <a href="#iletisim">Contact</a>
+    <a class="ticket" href="https://bilet.tuanasanatkulubu.com" target="_blank" rel="noopener">Buy Tickets</a>
+  </nav>
+</div>
+
+<main lang="en">
+<section id="hosgeldiniz">
+  <div class="wrap side">
+    <h2 class="side-label">Tuana Steps</h2>
+    <div>
+      <p class="welcome">The word Tuana means “the first raindrop falling from heaven”, but to us it means much more: friendship, fellowship and togetherness; seven regions and seven cultures, from east to west. One big family with whom we share our bread and water, our joys and our sorrows.</p>
+
+      <ul class="dallar">
+        <li class="dal open" style="--img:url(../img/halk.jpg);--pos:50% 40%">
+          <button type="button" class="dal-tab" aria-expanded="true" aria-controls="dal-halk"><span class="dal-name">Folk Dance</span></button>
+          <div class="dal-body" id="dal-halk">
+            <span class="kicker">Steps of Anatolia</span>
+            <h3 class="kol-title">Folk Dance</h3>
+            <p class="dal-text">Carrying the joy, sorrow and stories of thousands of years of Anatolian culture, our folk dances are a bridge that passes the heritage of the past on to future generations.</p>
+            <ul class="dal-groups"><li>Children's Folk Dance</li><li>Youth Folk Dance Performance Ensemble</li><li>Recreational Folk Dance</li></ul><div class="dal-subs"><div><h4>Gala</h4><p>Year-end recitals and New Year performances</p></div><div><h4>Festivals and Opening Ceremonies</h4><p>Representing <span lang="tr">Türkiye</span> at home and abroad</p></div></div>
+          </div>
+        </li>
+        <li class="dal" style="--img:url(../img/g-modern.jpg);--pos:50% 50%">
+          <button type="button" class="dal-tab" aria-expanded="false" aria-controls="dal-modern"><span class="dal-name">Modern Dance</span></button>
+          <div class="dal-body" id="dal-modern">
+            <span class="kicker">Contemporary Steps of the Stage</span>
+            <h3 class="kol-title">Modern Dance</h3>
+            <p class="dal-text">Born from the discipline of classical ballet and set free in the 20th century, these styles use the language of the body to express emotion and the inner world.</p>
+            <ul class="dal-groups"><li>Children's Ballet</li><li>Adult Ballet</li><li>Ballroom Dance</li></ul>
+          </div>
+        </li>
+        <li class="dal" style="--img:url(../img/flamenko.jpg);--pos:50% 30%">
+          <button type="button" class="dal-tab" aria-expanded="false" aria-controls="dal-flamenko"><span class="dal-name">Flamenco</span></button>
+          <div class="dal-body" id="dal-flamenko">
+            <span class="kicker">Steps of Passion</span>
+            <h3 class="kol-title">Flamenco</h3>
+            <p class="dal-text">Born where Romani, Arab and Jewish cultures met in Andalusia, Spain, flamenco tells of love, pain and the passion for freedom through heel beats and handclaps.</p>
+            
+          </div>
+        </li>
+        <li class="dal" style="--img:url(../img/sirtaki.jpg);--pos:50% 40%">
+          <button type="button" class="dal-tab" aria-expanded="false" aria-controls="dal-sirtaki"><span class="dal-name">Sirtaki</span></button>
+          <div class="dal-body" id="dal-sirtaki">
+            <span class="kicker">Kindred Steps of the Aegean</span>
+            <h3 class="kol-title">Sirtaki</h3>
+            <p class="dal-text">Created for a film and inspired by old Greek folk dances, sirtaki, with dancers lined up shoulder to shoulder, stands for friendship, unity and a joyful love of life.</p>
+            
+          </div>
+        </li>
+        <li class="dal" style="--img:url(../img/oryantal.jpg);--pos:50% 35%">
+          <button type="button" class="dal-tab" aria-expanded="false" aria-controls="dal-oryantal"><span class="dal-name">Belly Dance</span></button>
+          <div class="dal-body" id="dal-oryantal">
+            <span class="kicker">Steps of Grace</span>
+            <h3 class="kol-title">Belly Dance</h3>
+            <p class="dal-text">Rooted in the ancient celebration dances of the Middle East and Anatolia, belly dance symbolises abundance and the joy of life through the flowing movements of the body.</p>
+            
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <section id="hakkimizda" style="padding-top:0">
+    <div class="wrap side">
+      <h2 class="side-label">About Us</h2>
+      <div class="about">
+        <div>
+          <p class="lead">Keeping Turkish folk dance <b>alive on stage since 2002.</b></p>
+          <p><span lang="tr">Tuana Sanat Gençlik ve Spor Kulübü Derneği</span> (Tuana Art, Youth and Sports Club Association) was founded in Ankara in 2002 to bring to light, spread and keep alive the folk traditions rooted deep in Turkish history.</p>
+          <p>Dedicated to serving Turkish culture, <span lang="tr">Tuana Sanat Kulübü</span> has appeared in many productions on private television channels and on TRT, <span lang="tr">Türkiye</span>'s public broadcaster. As the resident folk dance ensemble of the Turkish folk music programmes “<span lang="tr">Üçü Bir Yerde</span>” (TRT 1, 2006–2007) and “Turnalar” (TRT 1, 2008–2009), it performed live for audiences across <span lang="tr">Türkiye</span> every week.</p>
+          <p>Across <span lang="tr">Türkiye</span> and abroad, <span lang="tr">Tuana Sanat Kulübü</span> has taken part in many events, including performances, festivals, competitions, tourism and trade fairs, and Olympic opening ceremonies.</p>
+          <p>The club works on a wide repertoire of Turkish folk dances performed across Anatolia, including Anamur, <span lang="tr">Artvin</span>, Balkan, Bodrum, Burdur, Bursa Keles, <span lang="tr">Çiftetelli</span>, <span lang="tr">Denizli</span> <span lang="tr">Acıpayam</span>, <span lang="tr">Denizli</span> <span lang="tr">Ağır</span> Zeybek, Erzurum, <span lang="tr">Gaziantep</span>, <span lang="tr">Hakkari</span>, <span lang="tr">İzmir</span>, <span lang="tr">Kahramanmaraş</span>, <span lang="tr">Kütahya</span>, <span lang="tr">Milas</span>, <span lang="tr">Muş</span>, Roman, Samsun, <span lang="tr">Siirt</span>, <span lang="tr">Silifke</span>, <span lang="tr">Silivri</span>, Tokat and Trabzon.</p>
+          <p>With the repertoire, music recordings and costumes built up since 2002, the association runs its Children's Folk Dance, Youth Folk Dance Performance Ensemble, Recreational Folk Dance, Ballroom Dance, Children's and Adult Ballet, Flamenco, Sirtaki and Belly Dance classes at its dance studio in Armada Shopping Mall.</p>
+        </div>
+        <div class="stats" aria-label="Tuana in numbers">
+          
+          <div class="stat has-pop" tabindex="0"><b data-to="67">67</b><span>Events and Festivals</span><div class="pop" role="region" aria-label="Events and Festivals"><h4>Events and Festivals</h4><div class="yr"><b>2004</b><ul><li>Folk Dance Festivals, Spain</li></ul></div><div class="yr"><b>2005</b><ul><li>Turkish Week at the Sheraton Hotel Karachi, Pakistan</li><li>Andong Mask Dance Festival, South Korea</li><li>JCI World Congress, Vienna, Austria</li></ul></div><div class="yr"><b>2006</b><ul><li>Folk Dance Festival, Estonia</li><li>Mondial des Cultures de Drummondville Folk Dance Festival, Canada</li></ul></div><div class="yr"><b>2007</b><ul><li>Tourism Fair, Belarus</li><li>Folk Dance Festival, Belgium</li><li>Chicago Turkish Festival, USA</li><li>Folk Dance Festival, Rhodes, Greece</li><li>Event organised by the Undersecretariat of Treasury and Foreign Trade, China</li></ul></div><div class="yr"><b>2008</b><ul><li>Tourism Fair, Switzerland</li><li>Tourism Fair, Ukraine</li><li>Chicago Turkish Festival, USA</li><li>Tourism Fair, Orlando and New York, USA</li><li>Folk Dance Festival, Romania</li><li>Folk Dance Festival, Rhodes</li><li>Tourism Fair, Finland</li><li>Tourism Fair, Greece</li></ul></div><div class="yr"><b>2009</b><ul><li>Tourism Fair, Switzerland</li><li>Tourism Fair, Ukraine</li><li>Trade Fair with the Istanbul Chamber of Commerce, United Arab Emirates</li><li>Trade Fair with the Istanbul Chamber of Commerce, Albania</li><li>Trade Fair with the Istanbul Chamber of Commerce, Bosnia</li><li>Chicago Turkish Festival, USA</li><li>Tourism Fair, Germany</li><li>Turkish Day event, Qatar</li></ul></div><div class="yr"><b>2010</b><ul><li>Tourism Fair, Germany</li><li>Chicago Turkish Festival, USA</li><li>Folk Dance Festival, France</li><li>Trade Fair with the Istanbul Chamber of Commerce, Syria</li><li>Trade Fair with the Istanbul Chamber of Commerce, Bosnia</li></ul></div><div class="yr"><b>2011</b><ul><li>Tourism Fair, Spain</li><li>Tourism Fair, Russia</li><li>Trade Fair with the Istanbul Chamber of Commerce, Algeria</li><li>Trade Fair with the Istanbul Chamber of Commerce, India</li><li>Folk Dance Festival, France</li><li>Trade Fair with the Istanbul Chamber of Commerce, Albania</li><li>Chicago Turkish Festival, USA</li></ul></div><div class="yr"><b>2012</b><ul><li>Trade Fair with the Istanbul Chamber of Commerce, Malaysia</li><li>Trade Fair with the Istanbul Chamber of Commerce, Nigeria</li><li>Trade Fair with the Istanbul Chamber of Commerce, Bosnia</li><li>Trade Fair with the Istanbul Chamber of Commerce, Mexico</li><li>Folk Dance Festival, Bulgaria</li><li>Chicago Turkish Festival, USA</li></ul></div><div class="yr"><b>2013</b><ul><li>Nowruz Celebrations, United Kingdom</li><li>Trade Fair with the Istanbul Chamber of Commerce, China</li><li>Chicago Turkish Festival, USA</li><li>Trade Fair with the Istanbul Chamber of Commerce, Slovenia</li></ul></div><div class="yr"><b>2014</b><ul><li>Trade Fair with the Istanbul Chamber of Commerce, Vietnam</li><li>Trade Fair with the Istanbul Chamber of Commerce, Cameroon</li><li>Folk Dance Competition, South Korea</li></ul></div><div class="yr"><b>2015</b><ul><li>Trade Fair with the Istanbul Chamber of Commerce, Bosnia</li></ul></div><div class="yr"><b>2016</b><ul><li>Chile, on assignment from the Presidency of <span lang="tr">Türkiye</span></li><li>Agrigento Folk Dance Competition, Sicily</li></ul></div><div class="yr"><b>2017</b><ul><li>Houston Turkish Festival and San Antonio Republic Day Ball, USA</li><li>Dallas and Denver Republic Day Balls, USA</li></ul></div><div class="yr"><b>2018</b><ul><li>Houston Turkish Festival, USA</li><li>Denver Republic Day Ball, USA</li></ul></div><div class="yr"><b>2019</b><ul><li>Folk Dance Festival, Italy</li></ul></div><div class="yr"><b>2022</b><ul><li>Washington Turkish Festival, San Antonio and Dallas Republic Day Balls, USA</li></ul></div><div class="yr"><b>2023</b><ul><li>Houston Turkish Festival, USA</li><li>Chicago Republic Day Ball, USA</li></ul></div><div class="yr"><b>2025</b><ul><li>International Dance Festival “Folk Harbor”, Gorzów (3rd Prize)</li></ul></div><div class="yr"><b>2026</b><ul><li>International Folklore Dance Festival of Agrinio</li><li>International Folk Art Festival (Gold Ring), Moscow – Vladimir – Suzdal</li><li>Turkish Embassy in Rabat, 29 October Republic Day Reception</li></ul></div></div></div>
+          <div class="stat has-pop" tabindex="0"><b data-to="8">8</b><span>Competitions</span><div class="pop" role="region" aria-label="Türkiye Folk Dance Competitions"><h4><span lang="tr">Türkiye</span> Folk Dance Competitions</h4><p class="pop-intro">Results at the <span lang="tr">Türkiye</span> Folk Dance Competitions, organised jointly by the Ministry of Culture and Tourism and the <span lang="tr">Hacı</span> <span lang="tr">Ömer</span> <span lang="tr">Sabancı</span> Foundation</p><div class="yr"><b>2004</b><ul><li>1st in <span lang="tr">Türkiye</span></li></ul></div><div class="yr"><b>2005</b><ul><li>2nd in <span lang="tr">Türkiye</span></li></ul></div><div class="yr"><b>2006</b><ul><li>1st in <span lang="tr">Türkiye</span></li></ul></div><div class="yr"><b>2007</b><ul><li>1st in <span lang="tr">Türkiye</span></li></ul></div><div class="yr"><b>2008</b><ul><li>Guest Ensemble</li></ul></div><div class="yr"><b>2009</b><ul><li>3rd in <span lang="tr">Türkiye</span></li></ul></div><div class="yr"><b>2010</b><ul><li>4th in <span lang="tr">Türkiye</span></li></ul></div><div class="yr"><b>2011</b><ul><li>2nd in <span lang="tr">Türkiye</span></li></ul></div></div></div>
+          <div class="stat has-pop" tabindex="0"><b data-to="7">7</b><span>Special Performances</span><div class="pop" role="region" aria-label="Special Performances"><h4>Special Performances</h4><div class="yr"><b>2009</b><ul><li>5th World Water Forum Opening Ceremony, Istanbul</li></ul></div><div class="yr"><b>2011</b><ul><li>25th Winter Universiade Opening Ceremony, Erzurum</li><li>Modern Pentathlon Youth World Championships Opening Ceremony, Istanbul</li><li>1st World Children's Games Opening Ceremony, Ankara</li></ul></div><div class="yr"><b>2016</b><ul><li>“Voice of 1000 Years” Turkish Language Festival, Istanbul</li></ul></div><div class="yr"><b>2017</b><ul><li>23rd Deaflympics Opening and Closing Ceremonies</li><li>Turkish Summer School Closing Ceremony, Ankara</li></ul></div></div></div>
+          <div class="stat has-pop" tabindex="0"><b data-to="3">3</b><span>International Competitions</span><div class="pop" role="region" aria-label="International Competitions"><h4>International Competitions</h4><div class="yr"><b>2014</b><ul><li>South Korea Folk Dance Competition, First Prize</li></ul></div><div class="yr"><b>2016</b><ul><li>Sicily Folk Dance Competition, First Prize</li></ul></div><div class="yr"><b>2025</b><ul><li>Poland Folk Dance Competition, Third Prize</li></ul></div></div></div>
+          <div class="stat country"><b data-to="55">55</b><span>Countries</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="show-band" id="gosteri">
+    <div class="wrap show">
+      <div class="poster">
+        <img src="../img/logo-beyaz-en.png" alt="Tuana Art Club" width="900" height="440">
+        <div class="name"><span lang="tr">Kibele</span></div>
+      </div>
+      <div class="show-info">
+        <h2>Next performance</h2>
+        <dl class="facts">
+          <div><dt>Date</dt><dd>Saturday, 5 December 2026</dd></div>
+          <div><dt>Time</dt><dd>19:00</dd></div>
+          <div><dt>Venue</dt><dd>MEB <span lang="tr">Şura</span> Salonu</dd></div>
+          <div><dt>City</dt><dd>Ankara</dd></div>
+        </dl>
+        <div class="countdown" id="countdown" aria-label="Time left until the performance">
+          <div><b id="cd-d">--</b><span>Days</span></div>
+          <div><b id="cd-h">--</b><span>Hours</span></div>
+          <div><b id="cd-m">--</b><span>Minutes</span></div>
+        </div>
+        <a class="btn solid" href="https://bilet.tuanasanatkulubu.com" target="_blank" rel="noopener">Buy Tickets</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="egitmenler">
+  <div class="wrap side">
+    <h2 class="side-label">Our Instructors</h2>
+    <div>
+      <article class="director">
+        <div class="ph"><img src="../img/e-tugay.jpg" alt="Av. Suphi Tugay Ertunç" width="480" height="600"></div>
+        <div class="info">
+          <span class="bar" aria-hidden="true"></span>
+          <h3 class="name">Av. <span lang="tr">Suphi</span> Tugay <b><span lang="tr">ERTUNÇ</span></b></h3>
+          <span class="role kicker">Art Director</span>
+        </div>
+      </article>
+
+      <div class="chips" role="group" aria-label="Filter by style">
+        <button class="chip" type="button" id="f-halk" data-f="halk" aria-pressed="false">Folk Dance</button>
+        <button class="chip" type="button" id="f-modern" data-f="modern" aria-pressed="false">Modern Dance</button>
+        <button class="chip" type="button" id="f-flamenko" data-f="flamenko" aria-pressed="false">Flamenco</button>
+        <button class="chip" type="button" id="f-sirtaki" data-f="sirtaki" aria-pressed="false">Sirtaki</button>
+        <button class="chip" type="button" id="f-oryantal" data-f="oryantal" aria-pressed="false">Belly Dance</button>
+      </div>
+
+      <div class="groups" id="groups">
+        <!-- HALK OYUNLARI -->
+        <div class="group wide" data-g="halk">
+          <div class="group-head">
+            <div class="t"><span class="kicker">Steps of Anatolia</span><h3>Folk Dance</h3></div>
+          </div>
+          <div class="cards">
+            <figure class="person"><div class="ph"><img src="../img/e-burcu.jpg" alt="Burcu Koca Güler" width="480" height="600"></div><figcaption><span class="nm">Burcu <b>KOCA <span lang="tr">GÜLER</span></b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-irem.jpg" alt="İrem Özonat" width="480" height="600"></div><figcaption><span class="nm"><span lang="tr">İrem</span> <b><span lang="tr">ÖZONAT</span></b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-f2.jpg" alt="Özlem Başbuğ" width="480" height="600"></div><figcaption><span class="nm"><span lang="tr">Özlem</span> <b><span lang="tr">BAŞBUĞ</span></b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-tuba.jpg" alt="Tuba Morova" width="480" height="600"></div><figcaption><span class="nm">Tuba <b>MOROVA</b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-faruk.jpg" alt="Ömer Faruk Arkan" width="480" height="480"></div><figcaption><span class="nm"><span lang="tr">Ömer</span> Faruk <b>ARKAN</b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-f1.jpg" alt="Fatih Ahmed Tektemur" width="480" height="600"></div><figcaption><span class="nm"><span lang="tr">Fatih</span> Ahmed <b>TEKTEMUR</b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-f6.jpg" alt="Mehmet Vuranok" width="480" height="600"></div><figcaption><span class="nm">Mehmet <b>VURANOK</b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-f8.jpg" alt="Mert Can Duman" width="480" height="600"></div><figcaption><span class="nm">Mert Can <b>DUMAN</b></span><span class="rl">Instructor</span></figcaption></figure>
+          </div>
+        </div>
+
+        <!-- MODERN DANS -->
+        <div class="group wide tone" data-g="modern">
+          <div class="group-head">
+            <div class="t"><span class="kicker">Contemporary Steps of the Stage</span><h3>Modern Dance</h3></div>
+          </div>
+          <div class="cards">
+            <figure class="person"><div class="ph"><img src="../img/e-almina.jpg" alt="Almina Ayyıldız" width="480" height="600"></div><figcaption><span class="nm"><span lang="tr">Almina</span> <b>AYYILDIZ</b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-ozgur.jpg" alt="Özgür Ayyıldız" width="480" height="600"></div><figcaption><span class="nm"><span lang="tr">Özgür</span> <b>AYYILDIZ</b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-sevgul.jpg" alt="Sevgül Eylül Atak" width="480" height="600"></div><figcaption><span class="nm"><span lang="tr">Sevgül</span> <span lang="tr">Eylül</span> <b>ATAK</b></span><span class="rl">Instructor</span></figcaption></figure>
+          </div>
+        </div>
+
+        <!-- FLAMENKO -->
+        <div class="group wide" data-g="flamenko">
+          <div class="group-head">
+            <div class="t"><span class="kicker">Steps of Passion</span><h3>Flamenco</h3></div>
+          </div>
+          <div class="cards">
+            <figure class="person"><div class="ph"><img src="../img/e-f4.jpg" alt="Burcu Toprak" width="480" height="600"></div><figcaption><span class="nm">Burcu <b>TOPRAK</b></span><span class="rl">Instructor</span></figcaption></figure>
+            <figure class="person"><div class="ph"><img src="../img/e-f5.jpg" alt="Burçin Seçil Altundemir" width="480" height="600"></div><figcaption><span class="nm"><span lang="tr">Burçin</span> <span lang="tr">Seçil</span> <b><span lang="tr">ALTUNDEMİR</span></b></span><span class="rl">Instructor</span></figcaption></figure>
+          </div>
+        </div>
+
+        <!-- SİRTAKİ -->
+        <div class="group solo" data-g="sirtaki">
+          <div class="group-head">
+            <div class="t"><span class="kicker">Kindred Steps of the Aegean</span><h3>Sirtaki</h3></div>
+          </div>
+          <div class="cards">
+            <figure class="person"><div class="ph"><img src="../img/e-ceren.jpg" alt="Ceren Olgun" width="480" height="600"></div><figcaption><span class="nm">Ceren <b>OLGUN</b></span><span class="rl">Instructor</span></figcaption></figure>
+          </div>
+        </div>
+
+        <!-- ORYANTAL -->
+        <div class="group solo tone" data-g="oryantal">
+          <div class="group-head">
+            <div class="t"><span class="kicker">Steps of Grace</span><h3>Belly Dance</h3></div>
+          </div>
+          <div class="cards">
+            <figure class="person"><div class="ph"><img src="../img/e-f9.jpg" alt="Azad Kaan" width="480" height="600"></div><figcaption><span class="nm">Azad <b>KAAN</b></span><span class="rl">Instructor</span></figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="subeler" style="padding-top:0">
+    <div class="wrap side">
+      <h2 class="side-label">Branches</h2>
+      <div class="branches">
+        <a class="branch" href="#adres-ankara" aria-label="Ankara: go to contact details"><b>Ankara</b><img src="../img/sube-ankara.png" alt="Tuana Ankara" width="720" height="432"></a>
+        <a class="branch" href="#adres-izmir" aria-label="İzmir: go to contact details"><b><span lang="tr">İzmir</span></b><img src="../img/sube-izmir.png" alt="Tuana İzmir" width="720" height="432"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeri" style="padding-top:0">
+  <div class="wrap side">
+    <h2 class="side-label">Gallery</h2>
+    <div>
+      <div class="tabs" role="tablist" aria-label="Gallery">
+        <button class="tab" type="button" role="tab" id="tab-foto" aria-controls="p-foto" aria-selected="false">Photos</button>
+        <button class="tab" type="button" role="tab" id="tab-gosteri" aria-controls="p-gosteri" aria-selected="true">Performances</button>
+      </div>
+
+      <!-- FOTOĞRAFLAR -->
+      <div class="panel" id="p-foto" role="tabpanel" aria-labelledby="tab-foto" hidden>
+        <div class="gv">
+          <div class="col"><button class="t t9" type="button" aria-label="Enlarge: dancers in blue skirts with open arms on stage" data-alt="Mavi etekli dansçılar sahnede kollarını açmış"></button><button class="t t12" type="button" aria-label="Enlarge: women dancers with silver jewellery under purple light" data-alt="Mor ışık altında gümüş takılı kadın dansçılar"></button></div>
+          <button class="t t10" type="button" aria-label="Enlarge: men and women folk dancers with floral headdresses" data-alt="Çiçekli başlıklı kadın ve erkek halk oyuncuları"></button>
+          <div class="col"><button class="t t14" type="button" aria-label="Enlarge: men's and women's folk dance team on the competition stage" data-alt="Kadın ve erkek halk oyunu ekibi yarışma sahnesinde"></button><button class="t t15" type="button" aria-label="Enlarge: folk dancers kneeling in a line" data-alt="Halk oyuncuları sıra halinde diz çekiyor"></button></div>
+        </div>
+        <div class="gv two">
+          <button class="t t13" type="button" aria-label="Enlarge: men folk dancers in black vests on stage" data-alt="Siyah yelekli erkek halk oyuncuları sahnede"></button>
+          <button class="t t11" type="button" aria-label="Enlarge: modern dance team in white costumes lined up on stage" data-alt="Beyaz kostümlü modern dans ekibi sahnede sıralanmış"></button>
+        </div>
+      </div>
+
+      <!-- GÖSTERİLER -->
+      <div class="panel" id="p-gosteri" role="tabpanel" aria-labelledby="tab-gosteri">
+        <article class="feature">
+          <a class="vid" href="https://www.youtube.com/watch?v=Ym9_4-nXvYo" target="_blank" rel="noopener" style="background-image:url(../img/yt/Ym9_4-nXvYo.jpg)" aria-label="Watch the Tuana Sanat Kulübü promotional film">
+            <span class="play" aria-hidden="true"></span><span class="dur">4:55</span>
+          </a>
+          <div class="info">
+            <span class="kicker">Featured</span>
+            <h3><span lang="tr">Tuana Sanat Kulübü</span></h3>
+            <p><span lang="tr">Tuana Sanat Kulübü</span> promotional film.</p>
+            <span class="meta">2011</span>
+          </div>
+        </article>
+
+        <div class="videos">
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=wranPErOULg" target="_blank" rel="noopener" style="background-image:url(../img/yt/wranPErOULg.jpg)" aria-label="Watch the Burdur Region video"><span class="play" aria-hidden="true"></span><span class="dur">6:21</span></a><h4>Burdur Region</h4><span class="meta">2006 · 1st in <span lang="tr">Türkiye</span></span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=DNN6tB3Qbpk" target="_blank" rel="noopener" style="background-image:url(../img/yt/DNN6tB3Qbpk.jpg)" aria-label="Watch the Trabzon Region video"><span class="play" aria-hidden="true"></span><span class="dur">6:44</span></a><h4>Trabzon Region</h4><span class="meta">2006 · 1st in <span lang="tr">Türkiye</span></span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=ZwSpig8TSSM" target="_blank" rel="noopener" style="background-image:url(../img/yt/ZwSpig8TSSM.jpg)" aria-label="Watch the Gaziantep Region video"><span class="play" aria-hidden="true"></span><span class="dur">5:57</span></a><h4><span lang="tr">Gaziantep</span> Region</h4><span class="meta">2006 · 1st in <span lang="tr">Türkiye</span></span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=YlLdZ01mexc" target="_blank" rel="noopener" style="background-image:url(../img/yt/YlLdZ01mexc.jpg)" aria-label="Watch the Milas Region video"><span class="play" aria-hidden="true"></span><span class="dur">7:09</span></a><h4><span lang="tr">Milas</span> Region</h4><span class="meta">2007 · 1st in <span lang="tr">Türkiye</span></span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=uHCnR8tXKq8" target="_blank" rel="noopener" style="background-image:url(../img/yt/uHCnR8tXKq8.jpg)" aria-label="Watch the Antep Region video"><span class="play" aria-hidden="true"></span><span class="dur">5:25</span></a><h4>Antep Region</h4><span class="meta">2007 · 1st in <span lang="tr">Türkiye</span></span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=ei6uRs-KL-8" target="_blank" rel="noopener" style="background-image:url(../img/yt/ei6uRs-KL-8.jpg)" aria-label="Watch the Trabzon Region video"><span class="play" aria-hidden="true"></span><span class="dur">6:01</span></a><h4>Trabzon Region</h4><span class="meta">2007 · 1st in <span lang="tr">Türkiye</span></span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=Wxi-MlDmmUU" target="_blank" rel="noopener" style="background-image:url(../img/yt/Wxi-MlDmmUU.jpg)" aria-label="Watch the Trabzon Region video"><span class="play" aria-hidden="true"></span><span class="dur">7:57</span></a><h4>Trabzon Region</h4><span class="meta">2009 · VAKSA Final, Guest of Honour</span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=KRh1QPgTZ4g" target="_blank" rel="noopener" style="background-image:url(../img/yt/KRh1QPgTZ4g.jpg)" aria-label="Watch the Hakkari Region video"><span class="play" aria-hidden="true"></span><span class="dur">8:56</span></a><h4><span lang="tr">Hakkari</span> Region</h4><span class="meta">2011 · 1st place, Ankara Regional Round</span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=QtIHRUMYLsg" target="_blank" rel="noopener" style="background-image:url(../img/yt/QtIHRUMYLsg.jpg)" aria-label="Watch the İzmir Region video"><span class="play" aria-hidden="true"></span><span class="dur">8:31</span></a><h4><span lang="tr">İzmir</span> Region</h4><span class="meta">2012 · THOF Ankara Provincial Competition</span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=CnTPZXaPtQM" target="_blank" rel="noopener" style="background-image:url(../img/yt/CnTPZXaPtQM.jpg)" aria-label="Watch the Burdur Region video"><span class="play" aria-hidden="true"></span><span class="dur">9:02</span></a><h4>Burdur Region</h4><span class="meta">2014</span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=gU54PYyA3L4" target="_blank" rel="noopener" style="background-image:url(../img/yt/gU54PYyA3L4.jpg)" aria-label="Watch the Muş Region video"><span class="play" aria-hidden="true"></span><span class="dur">8:27</span></a><h4><span lang="tr">Muş</span> Region</h4><span class="meta">2014</span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=JkQQ_84jAac" target="_blank" rel="noopener" style="background-image:url(../img/yt/JkQQ_84jAac.jpg)" aria-label="Watch the THOF 2018 Regional Competition · Hakkari video"><span class="play" aria-hidden="true"></span><span class="dur">8:55</span></a><h4>THOF 2018 Regional Competition · <span lang="tr">Hakkari</span></h4><span class="meta">2018</span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=aCalZ1cuLw4" target="_blank" rel="noopener" style="background-image:url(../img/yt/aCalZ1cuLw4.jpg)" aria-label="Watch the Traditional Kütahya Dances video"><span class="play" aria-hidden="true"></span><span class="dur">9:46</span></a><h4>Traditional <span lang="tr">Kütahya</span> Dances</h4><span class="meta">2022 · THOF 2022 National Final</span></article>
+          <article class="vcard"><a class="vid" href="https://www.youtube.com/watch?v=7cKdpjAwM-c" target="_blank" rel="noopener" style="background-image:url(../img/yt/7cKdpjAwM-c.jpg)" aria-label="Watch the THOF 2023 Final · Trabzon video"><span class="play" aria-hidden="true"></span><span class="dur">8:21</span></a><h4>THOF 2023 Final · Trabzon</h4><span class="meta">2023</span></article>
+        </div>
+
+        <div class="more"><a class="btn" href="https://www.youtube.com/@TuanaSanatKul%C3%BCb%C3%BC" target="_blank" rel="noopener">Our YouTube Channel</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="join-band" id="katil">
+    <div class="wrap">
+    <div class="head">
+      <div><h2>Join us on stage</h2><p class="sub">New steps in the footsteps of the past</p></div>
+      <a class="contact" href="#iletisim">Contact Us</a>
+    </div>
+      <div class="forms">
+      <a class="form halk" style="--img:url(../img/halk.jpg);--pos:50% 40%" href="https://docs.google.com/forms/d/e/1FAIpQLSd2lQUvC6xoo0z5QlB_eUaaXdRKMRsV1DzFm2kyMMQtaMMdZg/viewform" target="_blank" rel="noopener">
+        <div><span class="k">Steps of Anatolia</span><h3>Folk Dance</h3></div>
+        <ul><li>Children's Folk Dance</li><li>Youth Folk Dance Performance Ensemble</li><li>Recreational Folk Dance</li></ul>
+        <span class="go">Register</span>
+      </a>
+      <a class="form" style="--img:url(../img/g-modern.jpg);--pos:50% 50%" href="https://docs.google.com/forms/d/e/1FAIpQLSerUZwzCKtc6X5CPGf4uU1HJ0JXshelEuW3KOwQCFsPaBBWoA/viewform" target="_blank" rel="noopener">
+        <div><span class="k">Contemporary Steps of the Stage</span><h3>Modern Dance</h3></div>
+        <ul><li>Children's Ballet</li><li>Adult Ballet</li><li>Ballroom Dance</li></ul>
+        <span class="go">Register</span>
+      </a>
+      <a class="form" style="--img:url(../img/flamenko.jpg);--pos:50% 30%" href="https://docs.google.com/forms/d/e/1FAIpQLSfzQJ4TENhKbddRqTam_FtOnds2jvsKqyfgkJ-zNfVMSimTtQ/viewform" target="_blank" rel="noopener">
+        <div><span class="k">Steps of Passion</span><h3>Flamenco</h3></div>
+        <span></span>
+        <span class="go">Register</span>
+      </a>
+      <a class="form" style="--img:url(../img/sirtaki.jpg);--pos:50% 40%" href="https://docs.google.com/forms/d/e/1FAIpQLSecwFLTdunz5H1PHQCSDM7DPaVdPWzhf_x9lLJD7ozP1UmDsQ/viewform" target="_blank" rel="noopener">
+        <div><span class="k">Kindred Steps of the Aegean</span><h3>Sirtaki</h3></div>
+        <span></span>
+        <span class="go">Register</span>
+      </a>
+      <a class="form" style="--img:url(../img/oryantal.jpg);--pos:50% 35%" href="https://docs.google.com/forms/d/e/1FAIpQLSc0v3yLW7sNDNsPh9g97HN2C3sEuFwXZpUDrpYEFHdyDWpB7g/viewform" target="_blank" rel="noopener">
+        <div><span class="k">Steps of Grace</span><h3>Belly Dance</h3></div>
+        <span></span>
+        <span class="go">Register</span>
+      </a>
+    </div>
+    </div>
+  </div>
+</main>
+
+<dialog class="notice" id="ticketNotice" aria-labelledby="tn-title">
+  <div class="notice-card">
+    <p class="notice-k"><span lang="tr">Kibele</span> · 5 December 2026</p>
+    <h2 id="tn-title">Ticket sales open on 20 November 2026.</h2>
+    <p>Once sales open, the “Buy Tickets” buttons will take you straight to the ticket page.</p>
+    <button type="button" class="notice-ok">OK</button>
+  </div>
+</dialog>
+<dialog class="lb" id="lightbox" aria-label="Photo">
+  <button class="lb-close" type="button" aria-label="Close">×</button>
+  <button class="lb-nav prev" type="button" aria-label="Previous">‹</button>
+  <img class="lb-img" alt="">
+  <button class="lb-nav next" type="button" aria-label="Next">›</button>
+</dialog>
+<dialog class="vd" id="videoDialog" aria-label="Video">
+  <button class="lb-close" type="button" aria-label="Close">×</button>
+  <div class="vd-frame"></div>
+</dialog>
+
+<footer id="iletisim" lang="en">
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand">
+        <img src="../img/logo-beyaz-en.png" alt="Tuana Art Club" width="900" height="440">
+        <div class="social" aria-label="Social media">
+          <a href="https://www.facebook.com/tuanasanatkulubuankara/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.2V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg>Facebook</a>
+          <a href="https://www.instagram.com/tuanasanatkulubu/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>Instagram · Tuana</a>
+          <a href="https://www.instagram.com/masterarttuana/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>Instagram · Master Art Tuana</a>
+          <a href="https://www.youtube.com/@TuanaSanatKul%C3%BCb%C3%BC" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 8.2a3 3 0 0 0-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 0 0 2 8.2 31 31 0 0 0 1.6 12 31 31 0 0 0 2 15.8a3 3 0 0 0 2.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 0 0 2.1-2.1c.4-1.2.4-3.8.4-3.8s0-2.6-.4-3.8zM10 15V9l5.2 3L10 15z"/></svg>YouTube</a>
+        </div>
+      </div>
+      <div>
+        <h4 id="adres-ankara" class="adres">Tuana <span lang="tr">Gökkuşağı</span></h4>
+        <p><span lang="tr">Gökkuşağı</span> Mah. 1210. Sk. No: 11/B<br><span lang="tr">Cevizlidere</span> / Ankara</p>
+        <h4 style="margin-top:24px">Tuana Armada</h4>
+        <p>Armada Shopping Mall, Block B, Floor 3<br><span lang="tr">Beştepe</span>, <span lang="tr">Dumlupınar</span> Blv. No: 6<br><span lang="tr">Yenimahalle</span> / Ankara</p>
+        <h4 style="margin-top:24px" id="adres-izmir" class="adres">Tuana <span lang="tr">İzmir</span></h4>
+        <p><a class="web" href="https://tuanasanatizmir.wixsite.com/tuanaizmir" target="_blank" rel="noopener">Visit the website →</a></p>
+        <h4 style="margin-top:24px">Email</h4>
+        <p style="user-select:all">tuanasanatkulubu@gmail.com</p>
+      </div>
+      <div class="map-box">
+        <iframe class="map-frame" id="mapFrame" title="Map: Tuana Gökkuşağı" src="https://www.google.com/maps?q=G%C3%B6kku%C5%9Fa%C4%9F%C4%B1+Mah.+1210.+Sk.+No:11%2FB,+Cevizlidere,+%C3%87ankaya,+Ankara&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-tabs" role="group" aria-label="Choose location">
+          <button type="button" class="map-tab" aria-pressed="true" data-embed="https://www.google.com/maps?q=G%C3%B6kku%C5%9Fa%C4%9F%C4%B1+Mah.+1210.+Sk.+No:11%2FB,+Cevizlidere,+%C3%87ankaya,+Ankara&z=16&output=embed" data-dir="https://www.google.com/maps/search/?api=1&query=G%C3%B6kku%C5%9Fa%C4%9F%C4%B1+Mah.+1210.+Sk.+No:11%2FB+Cevizlidere+Ankara" data-name="Tuana Gökkuşağı"><span lang="tr">Gökkuşağı</span></button>
+          <button type="button" class="map-tab" aria-pressed="false" data-embed="https://www.google.com/maps?q=Armada+AVM,+Dumlup%C4%B1nar+Blv.+No:6,+Yenimahalle,+Ankara&z=15&output=embed" data-dir="https://www.google.com/maps/search/?api=1&query=Armada+AVM+Ankara" data-name="Tuana Armada">Armada</button>
+        </div>
+        <a class="map-link" id="mapDir" href="https://www.google.com/maps/search/?api=1&query=G%C3%B6kku%C5%9Fa%C4%9F%C4%B1+Mah.+1210.+Sk.+No:11%2FB+Cevizlidere+Ankara" target="_blank" rel="noopener">Directions to <span lang="tr">Gökkuşağı</span> →</a>
+      </div>
+    </div>
+    <div class="copy"><span>© <span id="yr">2026</span> <span lang="tr">Tuana Sanat Kulübü</span></span><span>Art Director: <span lang="tr">Av. Suphi Tugay Ertunç</span></span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Yıl sayacı: kuruluş 1 Ekim 2002, her 1 Ekim'de bir artar */
+  var now = new Date();
+  var done = now.getFullYear() - 2002;
+  if (now < new Date(now.getFullYear(), 9, 1)) done -= 1;
+  var n = done + 1, m = n % 100; document.getElementById('ordinal').textContent = n + ((m > 10 && m < 14) ? 'th' : ({1:'st',2:'nd',3:'rd'}[n % 10] || 'th'));
+  document.getElementById('yr').textContent = now.getFullYear();
+
+  /* Geri sayım: 5 Aralık 2026 19:00 (Türkiye saati) */
+  var SHOW = new Date('2026-12-05T19:00:00+03:00');
+  function pad(v){ return String(v).padStart(2,'0'); }
+  function tick(){
+    var ms = SHOW - new Date();
+    if (ms <= 0){ document.getElementById('countdown').innerHTML = '<div><b>Tonight</b></div>'; return; }
+    var m = Math.floor(ms/60000);
+    document.getElementById('cd-d').textContent = Math.floor(m/1440);
+    document.getElementById('cd-h').textContent = pad(Math.floor(m%1440/60));
+    document.getElementById('cd-m').textContent = pad(m%60);
+  }
+  tick(); setInterval(tick, 30000);
+
+  /* Açılış: logo canlanır, sonra video başlar (gerçek sitede YouTube 'playing' olunca) */
+  var hero = document.querySelector('.hero');
+  var vid = document.getElementById('bgVideo');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* açılış akışı aşağıdaki betikte */
+
+  /* Sayaç: görününce sıfırdan sayar; ilk açılışta son değerler yazılı */
+  if (!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        var el = e.target, to = +el.dataset.to, t0 = performance.now();
+        (function step(t){
+          var p = Math.min(1,(t-t0)/1600);
+          el.textContent = Math.round(to*(1-Math.pow(1-p,3))).toLocaleString('tr-TR');
+          if (p < 1) requestAnimationFrame(step);
+        })(t0);
+      });
+    }, {threshold:.6});
+    document.querySelectorAll('.stat b').forEach(function(s){ io.observe(s); });
+  }
+
+  /* Hakkımızda: masaüstünde üzerine gelince, dokunmatikte dokununca liste açılır */
+  document.querySelectorAll('#hakkimizda .has-pop').forEach(function(st){
+    st.addEventListener('click', function(ev){
+      if (ev.target.closest('.pop')) return;
+      var open = st.classList.contains('open');
+      document.querySelectorAll('#hakkimizda .has-pop.open').forEach(function(o){ o.classList.remove('open'); });
+      if (!open) st.classList.add('open');
+    });
+    st.addEventListener('mouseleave', function(){ st.classList.remove('open'); });
+  });
+})();
+</script>
+<script>
+(function(){
+  var tabs = document.querySelectorAll('#galeri .tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(o){
+        var on = o === t;
+        o.setAttribute('aria-selected', on ? 'true' : 'false');
+        document.getElementById(o.getAttribute('aria-controls')).hidden = !on;
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  var chips = document.querySelectorAll('#egitmenler .chip');
+  var groups = document.querySelectorAll('#egitmenler .group');
+  var current = null;
+  function show(f){
+    current = (current === f) ? null : f;   /* seçili branşa tekrar basınca hepsi görünür */
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', c.dataset.f === current ? 'true' : 'false'); });
+    groups.forEach(function(g){
+      var on = !current || g.dataset.g === current;
+      g.hidden = !on;
+      g.classList.toggle('wide', ['halk','modern','flamenko'].indexOf(g.dataset.g) > -1 || (on && !!current));
+      if (on){ g.querySelectorAll('.person').forEach(function(p, i){
+        p.style.animation = 'none'; void p.offsetWidth;
+        p.style.animation = ''; p.style.animationDelay = (i * 60) + 'ms';
+      }); }
+    });
+  }
+  chips.forEach(function(c){ c.addEventListener('click', function(){ show(c.dataset.f); }); });
+  document.querySelectorAll('#egitmenler .person').forEach(function(p, i){ p.style.animationDelay = (i % 8 * 60) + 'ms'; });
+})();
+</script>
+<script>
+(function(){
+  var dals=[].slice.call(document.querySelectorAll('#hosgeldiniz .dal'));
+  dals.forEach(function(d){
+    var tab=d.querySelector('.dal-tab');
+    function open(){ dals.forEach(function(o){ var on=o===d; o.classList.toggle('open',on); o.querySelector('.dal-tab').setAttribute('aria-expanded',on?'true':'false'); }); }
+    tab.addEventListener('click',open);
+    if (window.matchMedia('(hover:hover)').matches) tab.addEventListener('mouseenter',open);
+  });
+  /* Telefonda açılan bant ekranın üstünde görünsün */
+  var narrow=window.matchMedia('(max-width:860px)');
+  dals.forEach(function(d){ d.querySelector('.dal-tab').addEventListener('click',function(){
+    if(!narrow.matches) return;
+    setTimeout(function(){ var r=d.getBoundingClientRect(); if(r.top<70||r.top>innerHeight*0.55) window.scrollBy({top:r.top-80,behavior:'smooth'}); },620);
+  }); });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('a.branch').forEach(function(a){
+    a.addEventListener('click',function(){
+      var id=a.getAttribute('href').slice(1), h=document.getElementById(id); if(!h) return;
+      var group=id==='adres-ankara' ? [h, h.parentNode.querySelectorAll('h4.adres, h4')[1]] : [h];
+      setTimeout(function(){ group.forEach(function(x){ if(x){ x.classList.add('flash'); setTimeout(function(){ x.classList.remove('flash'); },1800); } }); },600);
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  /* ===== AÇILIŞ AKIŞI: 1) logo  2) video  3) 25. YIL  4) Kulübü Keşfet ===== */
+  /* Sayfa her açılışta videolu girişten başlasın (tarayıcının kaldığı yeri hatırlaması ve #adres kapalı) */
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  if(location.hash){ history.replaceState(null,'',location.pathname+location.search); }
+  window.scrollTo(0,0);
+  window.addEventListener('pageshow',function(e){ if(e.persisted) window.scrollTo(0,0); });
+
+  var v=document.getElementById('bgVideo'), hero=document.querySelector('.hero');
+  v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); v.loop=true;
+  v.removeAttribute('autoplay'); v.removeAttribute('poster');
+  var c=navigator.connection||{};
+  var portrait=window.matchMedia('(orientation:portrait) and (max-width:860px)');
+  function pick(){ return portrait.matches ? '../img/arka-plan-dikey.mp4' : (window.matchMedia('(max-width:700px), (max-height:500px)').matches ? '../img/arka-plan-mobil.mp4' : '../img/arka-plan.mp4'); }
+  function posterUrl(){ return portrait.matches ? '../img/kapak-dikey.jpg' : '../img/kapak.jpg'; }
+  var wantPlay=false, shown=false, rest=false;
+  function play(){ if(!wantPlay) return; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+  function showRest(){ if(rest) return; rest=true;
+    setTimeout(function(){ hero.classList.add('y-on'); }, 600);
+    setTimeout(function(){ hero.classList.add('e-on'); }, 1300); }
+  function showVideo(){ if(shown) return; shown=true; hero.classList.add('v-on'); showRest(); }
+  function setSrc(){ var u=pick(); if(v.getAttribute('src')===u) return; v.src=u; v.preload='auto'; v.load(); play(); }
+  if(!c.saveData){
+    setSrc();
+    if(portrait.addEventListener) portrait.addEventListener('change',setSrc); else if(portrait.addListener) portrait.addListener(setSrc);
+    v.addEventListener('playing',showVideo);
+    v.addEventListener('canplay',play);
+    /* Takılma koruması: oynuyor görünüp ilerlemiyorsa yeniden başlat */
+    var lastT=-1, still=0;
+    setInterval(function(){
+      if(!wantPlay||document.hidden) return;
+      if(v.paused){ play(); return; }
+      if(v.currentTime===lastT){ if(++still>=3){ still=0; var t=v.currentTime; v.load(); try{ v.currentTime=t; }catch(e){} play(); } }
+      else { still=0; lastT=v.currentTime; }
+    },1000);
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) play(); });
+    ['pointerdown','touchstart','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev,function(){ wantPlay=true; play(); },{once:true,passive:true}); });
+  }
+  /* Logo animasyonu bitince (1,6 sn) video başlar; video oynamaya başlayınca 25. YIL ve Keşfet gelir */
+  setTimeout(function(){
+    wantPlay=true; play();
+    /* Otomatik oynatma engelliyse (ör. iPhone düşük güç modu) 2 sn sonra kapak görseliyle devam et */
+    setTimeout(function(){ if(!shown){ v.poster=posterUrl(); hero.classList.add('v-on'); showRest(); } }, 2000);
+  }, 1600);
+
+  /* ===== SES: tarayıcılar sesli otomatik oynatmaya izin vermez; ilk dokunuşta ya da düğmeyle açılır,
+     kısıktan yükselerek gelir; açılıştan uzaklaşınca kısılır ===== */
+  var sb=document.getElementById('soundBtn'), ac=null, gain=null, soundOn=false, heroVisible=true;
+  try{ if(navigator.audioSession) navigator.audioSession.type='playback'; }catch(e){}
+  function ramp(to,sec){
+    if(gain){ var t=ac.currentTime; gain.gain.cancelScheduledValues(t); gain.gain.setValueAtTime(gain.gain.value,t); gain.gain.linearRampToValueAtTime(to,t+sec); }
+    else { v.volume=to; }
+  }
+  function setBtn(on){ sb.setAttribute('aria-pressed',on?'true':'false'); sb.setAttribute('aria-label',on?'Turn sound off':'Turn sound on'); sb.querySelector('.lbl').textContent=on?'Turn sound off':'Turn sound on'; }
+  function enableSound(){
+    try{
+      if(!ac){ var AC=window.AudioContext||window.webkitAudioContext; if(AC){ ac=new AC(); var src=ac.createMediaElementSource(v); gain=ac.createGain(); gain.gain.value=0; src.connect(gain); gain.connect(ac.destination); } }
+      if(ac&&ac.state==='suspended') ac.resume();
+    }catch(e){ ac=null; gain=null; }
+    soundOn=true; v.muted=false; wantPlay=true; setBtn(true);
+    var pr=v.play();
+    /* Tarayıcı bu dokunuşu izin olarak saymadıysa sessize dön, video durmasın; sonraki dokunuşta tekrar dene */
+    if(pr&&pr.catch) pr.catch(function(){ soundOn=false; v.muted=true; setBtn(false); play(); firstDone=false; arm(); });
+    if(heroVisible) ramp(1,3); else ramp(0,.1);
+  }
+  function disableSound(){ soundOn=false; setBtn(false); ramp(0,.6); setTimeout(function(){ if(!soundOn) v.muted=true; },650); }
+  sb.addEventListener('click',function(e){ e.stopPropagation(); firstDone=true; if(soundOn){ userOff=true; disableSound(); } else { userOff=false; enableSound(); } });
+  /* Ekip isteği: sayfadaki ilk dokunuş/tıklamada ses kendiliğinden açılsın (sesi kapatmış kişide tekrar açılmaz) */
+  var firstDone=false, userOff=false;
+  function firstGesture(e){ if(firstDone||userOff) return; if(e&&e.target&&e.target.closest&&e.target.closest('#soundBtn')) return; firstDone=true; if(!soundOn) enableSound(); }
+  function arm(){ ['click','keydown'].forEach(function(ev){ window.addEventListener(ev,firstGesture,{once:true,capture:true}); }); }
+  arm();
+  /* Açılıştan aşağı inince ses yavaşça kısılır, geri gelince açılır; sekme arka plandaysa durur */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ heroVisible=en[0].intersectionRatio>0.35; if(soundOn) ramp(heroVisible?1:0, heroVisible?1.5:1); },{threshold:[0,.35,.6]}).observe(hero);
+  }
+  document.addEventListener('visibilitychange',function(){ if(document.hidden&&soundOn) ramp(0,.2); else if(soundOn&&heroVisible) ramp(1,1.5); });
+
+  /* Harita: Gökkuşağı / Armada */
+  var mf=document.getElementById('mapFrame'), md=document.getElementById('mapDir');
+  document.querySelectorAll('.map-tab').forEach(function(t){ t.addEventListener('click',function(){
+    document.querySelectorAll('.map-tab').forEach(function(o){ o.setAttribute('aria-pressed', o===t?'true':'false'); });
+    mf.src=t.dataset.embed; mf.title='Map: '+t.dataset.name; md.href=t.dataset.dir; md.textContent='Directions to '+t.textContent+' →';
+  }); });
+
+  /* Bilet satışı 20 Kasım 2026 00:00 (Türkiye saati) öncesinde bilet bağlantıları açılmaz, uyarı gösterilir */
+  var SALE=new Date('2026-11-20T00:00:00+03:00'), tn=document.getElementById('ticketNotice');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href*="bilet-7c4e6.web.app"],a[href*="bilet.tuanasanatkulubu.com"]');
+    if(!a||new Date()>=SALE) return;
+    e.preventDefault();
+    if(tn.showModal){ tn.showModal(); tn.querySelector('.notice-ok').focus(); } else alert('Ticket sales open on 20 November 2026.');
+  },true);
+  tn.querySelector('.notice-ok').addEventListener('click',function(){ tn.close(); });
+  tn.addEventListener('click',function(e){ if(e.target===tn) tn.close(); });
+
+  /* Mobil menü */
+  var btn=document.querySelector('.menu-btn'), m=document.getElementById('mnav');
+  function setMenu(o){btn.setAttribute('aria-expanded',o?'true':'false');btn.setAttribute('aria-label',o?'Close menu':'Open menu');m.hidden=!o;}
+  btn.addEventListener('click',function(){setMenu(m.hidden);});
+  m.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden){setMenu(false);btn.focus();}});
+
+  /* Fotoğraf büyütme */
+  var lb=document.getElementById('lightbox'), img=lb.querySelector('.lb-img');
+  var tiles=[].slice.call(document.querySelectorAll('#p-foto .t')), cur=0;
+  function src(t){var b=getComputedStyle(t).backgroundImage;var x=b.match(/url\(["']?(.*?)["']?\)/);return x?x[1]:'';}
+  function show(i){cur=(i+tiles.length)%tiles.length;img.src=src(tiles[cur]);img.alt=tiles[cur].dataset.alt||'';}
+  tiles.forEach(function(t,i){t.addEventListener('click',function(){ if(!lb.showModal){ window.open(src(t),'_blank'); return; } show(i);lb.showModal();});});
+  lb.querySelector('.prev').addEventListener('click',function(){show(cur-1);});
+  lb.querySelector('.next').addEventListener('click',function(){show(cur+1);});
+  lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+  var x0=null;lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)show(cur+(d<0?1:-1));x0=null;});
+
+  /* Video penceresi: YouTube sayfadan çıkmadan oynar */
+  var vd=document.getElementById('videoDialog'), fr=vd.querySelector('.vd-frame');
+  document.querySelectorAll('#galeri a.vid').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=(a.href.match(/[?&]v=([\w-]{11})/)||[])[1]; if(!id||!vd.showModal)return;
+      e.preventDefault();
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1';
+      f.title=a.getAttribute('aria-label')||'Video';
+      f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;
+      fr.innerHTML='';fr.appendChild(f);vd.showModal();
+    });
+  });
+  vd.addEventListener('close',function(){fr.innerHTML='';});
+
+  /* Ortak: kapat düğmesi ve dışarı tıklama */
+  [lb,vd].forEach(function(d){
+    d.querySelector('.lb-close').addEventListener('click',function(){d.close();});
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+  });
+})();
+</script>
+</body>
+</html>
