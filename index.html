@@ -343,7 +343,13 @@ section{padding-block:clamp(72px,10vw,128px)}
 .branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;background:var(--line);border:1px solid var(--line)}
 .branch{background:var(--paper);padding:clamp(28px,4vw,44px);display:grid;justify-items:center;gap:18px}
 .branch b{font-family:var(--f-head);font-weight:400;font-size:clamp(1.3rem,2.4vw,1.7rem);letter-spacing:.24em;padding-left:.24em;text-transform:uppercase}
-.branch img{width:min(170px,55%);height:auto;filter:invert(1)}
+.branch img{width:min(170px,55%);height:auto;filter:invert(1);transition:transform .3s}
+a.branch{text-decoration:none;color:inherit;transition:background .25s}
+a.branch:hover{background:var(--mist)}
+a.branch:hover img{transform:scale(1.04)}
+a.branch:hover b{color:var(--al)}
+.foot h4.adres{scroll-margin-top:96px;transition:color .4s}
+.foot h4.adres.flash{color:var(--al)}
 
 /* ===== GALERİ (iki küçük | büyük kare | iki küçük) ===== */
 .gv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) minmax(0,1fr);gap:clamp(10px,2.5vw,32px);align-items:start}
@@ -836,8 +842,8 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
     <div class="wrap side">
       <h2 class="side-label">Şubeler</h2>
       <div class="branches">
-        <div class="branch"><b>Ankara</b><img src="img/sube-ankara.png" alt="Tuana Ankara" width="720" height="432"></div>
-        <div class="branch"><b>İzmir</b><img src="img/sube-izmir.png" alt="Tuana İzmir" width="720" height="432"></div>
+        <a class="branch" href="#adres-ankara" aria-label="Ankara: iletişim bilgilerine git"><b>Ankara</b><img src="img/sube-ankara.png" alt="Tuana Ankara" width="720" height="432"></a>
+        <a class="branch" href="#adres-izmir" aria-label="İzmir: iletişim bilgilerine git"><b>İzmir</b><img src="img/sube-izmir.png" alt="Tuana İzmir" width="720" height="432"></a>
       </div>
     </div>
   </section>
@@ -962,11 +968,11 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
         </div>
       </div>
       <div>
-        <h4>Tuana Gökkuşağı</h4>
+        <h4 id="adres-ankara" class="adres">Tuana Gökkuşağı</h4>
         <p>Gökkuşağı Mah. 1210. Sk. No: 11/B<br>Cevizlidere / Ankara</p>
         <h4 style="margin-top:24px">Tuana Armada</h4>
         <p>Armada AVM B Blok Kat: 3<br>Beştepe, Dumlupınar Blv. No:6<br>Yenimahalle / Ankara</p>
-        <h4 style="margin-top:24px">Tuana İzmir</h4>
+        <h4 style="margin-top:24px" id="adres-izmir" class="adres">Tuana İzmir</h4>
         <p><a class="web" href="https://tuanasanatizmir.wixsite.com/tuanaizmir" target="_blank" rel="noopener">İnternet sayfasını aç →</a></p>
         <h4 style="margin-top:24px">E-posta</h4>
         <p style="user-select:all">tuanasanatkulubu@gmail.com</p>
@@ -1092,6 +1098,17 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
     if(!narrow.matches) return;
     setTimeout(function(){ var r=d.getBoundingClientRect(); if(r.top<70||r.top>innerHeight*0.55) window.scrollBy({top:r.top-80,behavior:'smooth'}); },620);
   }); });
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll('a.branch').forEach(function(a){
+    a.addEventListener('click',function(){
+      var id=a.getAttribute('href').slice(1), h=document.getElementById(id); if(!h) return;
+      var group=id==='adres-ankara' ? [h, h.parentNode.querySelectorAll('h4.adres, h4')[1]] : [h];
+      setTimeout(function(){ group.forEach(function(x){ if(x){ x.classList.add('flash'); setTimeout(function(){ x.classList.remove('flash'); },1800); } }); },600);
+    });
+  });
 })();
 </script>
 <script>
