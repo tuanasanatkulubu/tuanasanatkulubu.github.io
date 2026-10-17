@@ -529,11 +529,18 @@ html:has(dialog[open]){overflow:hidden}
 .hero{min-height:100vh;min-height:min(100svh,920px)}
 @supports not (container-type:inline-size){.year{font-size:calc(min(380px,66vw) * .1)}}
 footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
-/* Dikey telefonda dikey video: ekranı tamamen kaplar, boşluk kalmaz */
+/* Dikey telefonda dikey video ekranı tamamen kaplar */
 @media (orientation:portrait) and (max-width:860px){
-  .hero{min-height:100vh;min-height:100svh;background:var(--night) url(img/kapak-dikey.jpg) center/cover no-repeat}
+  .hero{min-height:100vh;min-height:100svh}
   .hero .bg{object-fit:cover;object-position:50% 50%}
 }
+/* Açılış akışı: önce logo, sonra video, sonra 25. YIL, en son Kulübü Keşfet */
+.hero .bg{opacity:0;transition:opacity 1.2s ease}
+.hero.v-on .bg{opacity:1}
+.hero .year{opacity:0;transition:opacity 1s ease}
+.hero.y-on .year{opacity:1}
+.hero .entry{opacity:0;transform:translateY(10px);transition:opacity .9s ease,transform .9s ease}
+.hero.e-on .entry{opacity:1;transform:none}
 /* Yatay telefonda logo ve düğme ekrana sığsın */
 @media (orientation:landscape) and (max-height:520px){
   .hero{min-height:100vh;min-height:100svh}
@@ -558,7 +565,11 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
-  .hero .bg,.hero .year,.hero .entry{opacity:1;transform:none}
+  .hero .logo-wrap img{animation:reveal 1.8s cubic-bezier(.2,.7,.2,1) both!important}
+  .hero .logo-wrap .shine{animation:sweep 1.4s ease-in-out 1.5s both!important}
+  .hero .bg{transition:opacity 1.2s ease!important}
+  .hero .year{transition:opacity 1s ease!important}
+  .hero .entry{transition:opacity .9s ease,transform .9s ease!important}
   html{scroll-behavior:auto}
 }
 </style>
@@ -971,10 +982,7 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
   var hero = document.querySelector('.hero');
   var vid = document.getElementById('bgVideo');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  setTimeout(function(){
-    hero.classList.add('live');
-    var p = vid.play(); if (p && p.catch) p.catch(function(){});  /* hareket azaltma açık olsa da arka plan videosu oynar */
-  }, reduce ? 0 : 2600);
+  /* açılış akışı aşağıdaki betikte */
 
   /* Sayaç: görününce sıfırdan sayar; ilk açılışta son değerler yazılı */
   if (!reduce && 'IntersectionObserver' in window){
@@ -1061,25 +1069,49 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
 </script>
 <script>
 (function(){
-  /* Arka plan videosu: telefonda küçük dosya, veri tasarrufunda hiç yüklenmez */
-  var v=document.getElementById('bgVideo');
-  v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); v.setAttribute('autoplay','');
+  /* ===== AÇILIŞ AKIŞI: 1) logo  2) video  3) 25. YIL  4) Kulübü Keşfet ===== */
+  /* Sayfa her açılışta videolu girişten başlasın (tarayıcının kaldığı yeri hatırlaması ve #adres kapalı) */
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  if(location.hash){ history.replaceState(null,'',location.pathname+location.search); }
+  window.scrollTo(0,0);
+  window.addEventListener('pageshow',function(e){ if(e.persisted) window.scrollTo(0,0); });
+
+  var v=document.getElementById('bgVideo'), hero=document.querySelector('.hero');
+  v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); v.setAttribute('playsinline',''); v.setAttribute('webkit-playsinline',''); v.loop=true;
+  v.removeAttribute('autoplay'); v.removeAttribute('poster');
   var c=navigator.connection||{};
-  var hero=document.querySelector('.hero');
-  function start(){ if(v.paused){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); } }
+  var portrait=window.matchMedia('(orientation:portrait) and (max-width:860px)');
+  function pick(){ return portrait.matches ? 'img/arka-plan-dikey.mp4' : (window.matchMedia('(max-width:700px), (max-height:500px)').matches ? 'img/arka-plan-mobil.mp4' : 'img/arka-plan.mp4'); }
+  function posterUrl(){ return portrait.matches ? 'img/kapak-dikey.jpg' : 'img/kapak.jpg'; }
+  var wantPlay=false, shown=false, rest=false;
+  function play(){ if(!wantPlay) return; var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+  function showRest(){ if(rest) return; rest=true;
+    setTimeout(function(){ hero.classList.add('y-on'); }, 600);
+    setTimeout(function(){ hero.classList.add('e-on'); }, 1300); }
+  function showVideo(){ if(shown) return; shown=true; hero.classList.add('v-on'); showRest(); }
+  function setSrc(){ var u=pick(); if(v.getAttribute('src')===u) return; v.src=u; v.preload='auto'; v.load(); play(); }
   if(!c.saveData){
-    var portrait=window.matchMedia('(orientation:portrait) and (max-width:860px)');
-    function pick(){ return portrait.matches ? 'img/arka-plan-dikey.mp4' : (window.matchMedia('(max-width:700px), (max-height:500px)').matches ? 'img/arka-plan-mobil.mp4' : 'img/arka-plan.mp4'); }
-    function setSrc(){ var u=pick(); if(v.getAttribute('src')!==u){ v.poster = portrait.matches ? 'img/kapak-dikey.jpg' : 'img/kapak.jpg'; v.src=u; v.preload='auto'; v.load(); if(hero.classList.contains('live')) start(); } }
     setSrc();
-    /* Telefon yan çevrilince uygun videoya geç */
     if(portrait.addEventListener) portrait.addEventListener('change',setSrc); else if(portrait.addListener) portrait.addListener(setSrc);
-    /* Tarayıcı ilk denemede başlatmazsa: yüklenince, sekmeye dönünce ve ilk dokunuşta tekrar dene */
-    v.addEventListener('canplay',function(){ if(hero.classList.contains('live')) start(); });
-    var tries=0, iv=setInterval(function(){ if(hero.classList.contains('live')) start(); if(!v.paused||++tries>20) clearInterval(iv); },700);
-    document.addEventListener('visibilitychange',function(){ if(!document.hidden) start(); });
-    ['pointerdown','touchstart','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev,start,{once:true,passive:true}); });
+    v.addEventListener('playing',showVideo);
+    v.addEventListener('canplay',play);
+    /* Takılma koruması: oynuyor görünüp ilerlemiyorsa yeniden başlat */
+    var lastT=-1, still=0;
+    setInterval(function(){
+      if(!wantPlay||document.hidden) return;
+      if(v.paused){ play(); return; }
+      if(v.currentTime===lastT){ if(++still>=3){ still=0; var t=v.currentTime; v.load(); try{ v.currentTime=t; }catch(e){} play(); } }
+      else { still=0; lastT=v.currentTime; }
+    },1000);
+    document.addEventListener('visibilitychange',function(){ if(!document.hidden) play(); });
+    ['pointerdown','touchstart','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev,function(){ wantPlay=true; play(); },{once:true,passive:true}); });
   }
+  /* Logo animasyonu bitince (1,6 sn) video başlar; video oynamaya başlayınca 25. YIL ve Keşfet gelir */
+  setTimeout(function(){
+    wantPlay=true; play();
+    /* Otomatik oynatma engelliyse (ör. iPhone düşük güç modu) 2 sn sonra kapak görseliyle devam et */
+    setTimeout(function(){ if(!shown){ v.poster=posterUrl(); hero.classList.add('v-on'); showRest(); } }, 2000);
+  }, 1600);
 
   /* Mobil menü */
   var btn=document.querySelector('.menu-btn'), m=document.getElementById('mnav');
