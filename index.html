@@ -529,11 +529,10 @@ html:has(dialog[open]){overflow:hidden}
 .hero{min-height:100vh;min-height:min(100svh,920px)}
 @supports not (container-type:inline-size){.year{font-size:calc(min(380px,66vw) * .1)}}
 footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
-/* Dikey telefonda video kırpılmasın: tam genişlikte görünür, boşluklar videonun bulanık karesiyle dolar */
+/* Dikey telefonda dikey video: ekranı tamamen kaplar, boşluk kalmaz */
 @media (orientation:portrait) and (max-width:860px){
-  .hero{background:var(--night) url(img/hero-blur.jpg) center/cover no-repeat}
-  .hero .bg{object-fit:contain;object-position:50% 50%}
-  .hero::after{background:linear-gradient(180deg,rgba(16,16,18,.55),rgba(16,16,18,.25) 40%,rgba(16,16,18,.25) 60%,rgba(16,16,18,.8))}
+  .hero{min-height:100vh;min-height:100svh;background:var(--night) url(img/kapak-dikey.jpg) center/cover no-repeat}
+  .hero .bg{object-fit:cover;object-position:50% 50%}
 }
 /* Yatay telefonda logo ve düğme ekrana sığsın */
 @media (orientation:landscape) and (max-height:520px){
@@ -1069,8 +1068,12 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
   var hero=document.querySelector('.hero');
   function start(){ if(v.paused){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); } }
   if(!c.saveData){
-    v.src=window.matchMedia('(max-width:700px)').matches?'img/arka-plan-mobil.mp4':'img/arka-plan.mp4';
-    v.preload='auto'; v.load();
+    var portrait=window.matchMedia('(orientation:portrait) and (max-width:860px)');
+    function pick(){ return portrait.matches ? 'img/arka-plan-dikey.mp4' : (window.matchMedia('(max-width:700px), (max-height:500px)').matches ? 'img/arka-plan-mobil.mp4' : 'img/arka-plan.mp4'); }
+    function setSrc(){ var u=pick(); if(v.getAttribute('src')!==u){ v.poster = portrait.matches ? 'img/kapak-dikey.jpg' : 'img/kapak.jpg'; v.src=u; v.preload='auto'; v.load(); if(hero.classList.contains('live')) start(); } }
+    setSrc();
+    /* Telefon yan çevrilince uygun videoya geç */
+    if(portrait.addEventListener) portrait.addEventListener('change',setSrc); else if(portrait.addListener) portrait.addListener(setSrc);
     /* Tarayıcı ilk denemede başlatmazsa: yüklenince, sekmeye dönünce ve ilk dokunuşta tekrar dene */
     v.addEventListener('canplay',function(){ if(hero.classList.contains('live')) start(); });
     var tries=0, iv=setInterval(function(){ if(hero.classList.contains('live')) start(); if(!v.paused||++tries>20) clearInterval(iv); },700);
