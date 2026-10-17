@@ -546,6 +546,15 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
   .hero{min-height:100vh;min-height:100svh}
   .hero .bg{object-fit:cover;object-position:50% 50%}
 }
+/* Bilet satışı uyarısı */
+dialog.notice{border:0;padding:0;background:transparent;max-width:min(92vw,460px);width:100%}
+dialog.notice::backdrop{background:rgba(10,10,12,.72)}
+.notice-card{background:#fff;color:var(--ink);border-top:4px solid var(--al);padding:28px 26px 24px;display:grid;gap:12px;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.notice-k{margin:0;font-family:var(--f-head);font-size:.74rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--al)}
+.notice-card h2{font-family:var(--f-head);font-weight:400;font-size:1.35rem;line-height:1.35;letter-spacing:.02em;text-transform:none;margin:0}
+.notice-card p{margin:0;color:var(--ink-soft);font-size:.95rem}
+.notice-ok{justify-self:end;margin-top:6px;appearance:none;min-height:44px;padding:0 26px;border:0;background:var(--al);color:#fff;font:inherit;font-family:var(--f-head);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+.notice-ok:hover{background:#a31926}
 /* Ses düğmesi */
 .sound{position:absolute;right:max(20px,env(safe-area-inset-right,0px));bottom:max(22px,env(safe-area-inset-bottom,0px));z-index:3;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px 0 12px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:rgba(16,16,18,.35);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:#fff;font:inherit;font-family:var(--f-head);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;opacity:0;transform:translateY(8px);transition:opacity .9s ease,transform .9s ease,background .25s,border-color .25s}
 .hero.e-on .sound{opacity:1;transform:none}
@@ -944,6 +953,14 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
   </div>
 </main>
 
+<dialog class="notice" id="ticketNotice" aria-labelledby="tn-title">
+  <div class="notice-card">
+    <p class="notice-k">Kibele · 5 Aralık 2026</p>
+    <h2 id="tn-title">Bilet satışı 20 Kasım 2026 tarihinde başlayacaktır.</h2>
+    <p>Satış başladığında "Bilet Al" düğmeleri doğrudan bilet sayfasını açacak.</p>
+    <button type="button" class="notice-ok">Tamam</button>
+  </div>
+</dialog>
 <dialog class="lb" id="lightbox" aria-label="Fotoğraf">
   <button class="lb-close" type="button" aria-label="Kapat">×</button>
   <button class="lb-nav prev" type="button" aria-label="Önceki">‹</button>
@@ -1196,6 +1213,17 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
     document.querySelectorAll('.map-tab').forEach(function(o){ o.setAttribute('aria-pressed', o===t?'true':'false'); });
     mf.src=t.dataset.embed; mf.title='Harita: '+t.dataset.name; md.href=t.dataset.dir; md.textContent=t.textContent+' yol tarifi →';
   }); });
+
+  /* Bilet satışı 20 Kasım 2026 00:00 (Türkiye saati) öncesinde bilet bağlantıları açılmaz, uyarı gösterilir */
+  var SALE=new Date('2026-11-20T00:00:00+03:00'), tn=document.getElementById('ticketNotice');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href*="bilet-7c4e6.web.app"],a[href*="bilet.tuanasanatkulubu.com"]');
+    if(!a||new Date()>=SALE) return;
+    e.preventDefault();
+    if(tn.showModal){ tn.showModal(); tn.querySelector('.notice-ok').focus(); } else alert('Bilet satışı 20 Kasım 2026 tarihinde başlayacaktır.');
+  },true);
+  tn.querySelector('.notice-ok').addEventListener('click',function(){ tn.close(); });
+  tn.addEventListener('click',function(e){ if(e.target===tn) tn.close(); });
 
   /* Mobil menü */
   var btn=document.querySelector('.menu-btn'), m=document.getElementById('mnav');
