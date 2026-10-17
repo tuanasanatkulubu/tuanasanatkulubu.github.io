@@ -185,22 +185,22 @@ section{padding-block:clamp(72px,10vw,128px)}
 #hosgeldiniz .dal-subs h4{font-weight:500;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin:0}
 #hosgeldiniz .dal-subs p{margin:4px 0 0;font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.72)}
 @media (max-width:860px){
-  /* Telefon/tablet: yana kaydırılan kartlar; üstte fotoğraf, altta koyu metin alanı */
-  #hosgeldiniz .dallar{height:auto;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;margin-right:calc(-1 * max(16px, env(safe-area-inset-right, 0px)));padding-right:max(16px, env(safe-area-inset-right, 0px))}
-  #hosgeldiniz .dallar::-webkit-scrollbar{display:none}
-  #hosgeldiniz .dal{flex:0 0 min(84vw,400px);scroll-snap-align:start;display:flex;flex-direction:column;background:var(--night)}
-  #hosgeldiniz .dal::before{display:none}
-  #hosgeldiniz .dal::after{content:"";order:-1;display:block;aspect-ratio:4/3;background:var(--img) var(--pos)/cover no-repeat}
-  #hosgeldiniz .dal-tab{display:none}
-  #hosgeldiniz .dal-body{position:static;width:auto;flex:1;background:var(--night);opacity:1;visibility:visible;transform:none;padding:20px 20px 24px;align-content:start;overflow:visible}
+  /* Telefon/tablet: üst üste bantlar; dokunulan bant yumuşakça açılır, diğerleri kapanır (bilgisayardaki şeritlerin dikey hali) */
+  #hosgeldiniz .dallar{flex-direction:column;height:auto;gap:8px}
+  #hosgeldiniz .dal{flex:none;max-height:64px;transition:max-height .6s cubic-bezier(.2,.7,.2,1)}
+  #hosgeldiniz .dal.open{max-height:1000px}
+  #hosgeldiniz .dal::before{opacity:1;background:linear-gradient(90deg,rgba(16,16,18,.82),rgba(16,16,18,.45));transition:background .4s}
+  #hosgeldiniz .dal.open::before{opacity:1;background:linear-gradient(180deg,rgba(16,16,18,0) 0,rgba(16,16,18,.15) clamp(110px,34vw,190px),rgba(16,16,18,.97) calc(clamp(110px,34vw,190px) + 70px))}
+  #hosgeldiniz .dal-tab{height:64px;bottom:auto}
+  #hosgeldiniz .dal-name{left:20px;right:56px;bottom:auto;top:0;height:64px;display:flex;align-items:center;transform:none;writing-mode:horizontal-tb;font-size:1rem;letter-spacing:.22em}
+  #hosgeldiniz .dal-tab::before{content:"+";position:absolute;right:20px;top:0;height:64px;display:flex;align-items:center;font-family:var(--f-head);font-weight:300;font-size:1.6rem;color:#fff}
+  #hosgeldiniz .dal:not(.open) .dal-tab:hover::after{transform:scaleX(0)}
+  #hosgeldiniz .dal.open .dal-tab::before{opacity:0}
+  #hosgeldiniz .dal-body{position:relative;width:auto;background:none;padding:calc(clamp(110px,34vw,190px) + 24px) 20px 24px;align-content:start;overflow:visible;transform:translateY(8px)}
+  #hosgeldiniz .dal.open .dal-body{transform:none}
   #hosgeldiniz .dal-body .kol-title{font-size:1.9rem}
   #hosgeldiniz .dal-subs{grid-template-columns:minmax(0,1fr)}
-  #hosgeldiniz .dal-hint{display:flex}
 }
-#hosgeldiniz .dal-hint{display:none;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 0;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-#hosgeldiniz .dots{display:flex;gap:6px}
-#hosgeldiniz .dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .25s,width .25s}
-#hosgeldiniz .dots i.on{background:var(--al);width:20px;border-radius:4px}
 
 /* ===== HAKKIMIZDA ===== */
 .about{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
@@ -689,7 +689,6 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
           </div>
         </li>
       </ul>
-      <p class="dal-hint" aria-hidden="true"><span>Kaydırarak diğer dalları görün</span><span class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span></p>
     </div>
   </div>
 </section>
@@ -1072,13 +1071,12 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
     tab.addEventListener('click',open);
     if (window.matchMedia('(hover:hover)').matches) tab.addEventListener('mouseenter',open);
   });
-  /* Telefonda kaydırma noktaları */
-  var ul=document.querySelector('#hosgeldiniz .dallar'), dots=document.querySelectorAll('#hosgeldiniz .dots i');
-  ul.addEventListener('scroll',function(){
-    var w=dals[0].getBoundingClientRect().width+12, i=Math.round(ul.scrollLeft/w);
-    if(ul.scrollLeft+ul.clientWidth>=ul.scrollWidth-4) i=dals.length-1;
-    dots.forEach(function(d,k){ d.classList.toggle('on',k===i); });
-  },{passive:true});
+  /* Telefonda açılan bant ekranın üstünde görünsün */
+  var narrow=window.matchMedia('(max-width:860px)');
+  dals.forEach(function(d){ d.querySelector('.dal-tab').addEventListener('click',function(){
+    if(!narrow.matches) return;
+    setTimeout(function(){ var r=d.getBoundingClientRect(); if(r.top<70||r.top>innerHeight*0.55) window.scrollBy({top:r.top-80,behavior:'smooth'}); },620);
+  }); });
 })();
 </script>
 <script>
