@@ -160,6 +160,48 @@ section{padding-block:clamp(72px,10vw,128px)}
   #hosgeldiniz .feat .grid12{row-gap:20px}
 }
 
+
+/* ===== TUANA ADIMLARI: açılır dikey şeritler ===== */
+#hosgeldiniz .dallar{list-style:none;margin:0;padding:0;display:flex;gap:10px;height:clamp(600px,80vh,760px)}
+#hosgeldiniz .dal{position:relative;flex:1 1 0;min-width:0;overflow:hidden;background:var(--night) var(--img) var(--pos)/cover no-repeat;transition:flex-grow .55s cubic-bezier(.2,.7,.2,1)}
+#hosgeldiniz .dal::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,16,18,.3),rgba(16,16,18,.78));transition:opacity .4s}
+#hosgeldiniz .dal.open{flex-grow:6}
+#hosgeldiniz .dal.open::before{opacity:0}
+#hosgeldiniz .dal-tab{position:absolute;inset:0;z-index:2;appearance:none;border:0;background:transparent;color:#fff;cursor:pointer;padding:0}
+#hosgeldiniz .dal.open .dal-tab{pointer-events:none}
+#hosgeldiniz .dal-name{position:absolute;left:50%;bottom:28px;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;font-family:var(--f-head);font-weight:300;font-size:clamp(1.05rem,1.6vw,1.4rem);letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;transition:opacity .3s,color .2s}
+#hosgeldiniz .dal.open .dal-name{opacity:0}
+#hosgeldiniz .dal:not(.open) .dal-tab:hover .dal-name{color:#ff9aa3}
+#hosgeldiniz .dal:not(.open) .dal-tab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--al);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+#hosgeldiniz .dal:not(.open) .dal-tab:hover::after{transform:scaleX(1)}
+#hosgeldiniz .dal-body{position:absolute;left:0;top:0;bottom:0;width:min(66%,500px);z-index:3;padding:clamp(22px,2.8vw,40px);background:rgba(16,16,18,.92);color:#fff;display:grid;gap:11px;align-content:safe end;overflow:auto;opacity:0;visibility:hidden;transform:translateX(-12px);transition:opacity .3s,transform .3s,visibility 0s .3s}
+#hosgeldiniz .dal.open .dal-body{opacity:1;visibility:visible;transform:none;transition:opacity .4s .2s,transform .4s .2s,visibility 0s}
+#hosgeldiniz .dal-body .kicker{color:#ff8a94}
+#hosgeldiniz .dal-body .kol-title{font-size:clamp(1.8rem,3vw,2.8rem);color:#fff}
+#hosgeldiniz .dal-text{margin:0;color:rgba(255,255,255,.82);font-size:.95rem;line-height:1.6}
+#hosgeldiniz .dal-groups{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.92rem;font-weight:400}
+#hosgeldiniz .dal-groups li::before{content:"– ";color:#ff8a94}
+#hosgeldiniz .dal-subs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px;border-top:1px solid rgba(255,255,255,.2);padding-top:14px}
+#hosgeldiniz .dal-subs h4{font-weight:500;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:#fff;margin:0}
+#hosgeldiniz .dal-subs p{margin:4px 0 0;font-size:.88rem;line-height:1.5;color:rgba(255,255,255,.72)}
+@media (max-width:860px){
+  /* Telefon/tablet: yana kaydırılan kartlar; üstte fotoğraf, altta koyu metin alanı */
+  #hosgeldiniz .dallar{height:auto;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;margin-right:calc(-1 * max(16px, env(safe-area-inset-right, 0px)));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+  #hosgeldiniz .dallar::-webkit-scrollbar{display:none}
+  #hosgeldiniz .dal{flex:0 0 min(84vw,400px);scroll-snap-align:start;display:flex;flex-direction:column;background:var(--night)}
+  #hosgeldiniz .dal::before{display:none}
+  #hosgeldiniz .dal::after{content:"";order:-1;display:block;aspect-ratio:4/3;background:var(--img) var(--pos)/cover no-repeat}
+  #hosgeldiniz .dal-tab{display:none}
+  #hosgeldiniz .dal-body{position:static;width:auto;flex:1;background:var(--night);opacity:1;visibility:visible;transform:none;padding:20px 20px 24px;align-content:start;overflow:visible}
+  #hosgeldiniz .dal-body .kol-title{font-size:1.9rem}
+  #hosgeldiniz .dal-subs{grid-template-columns:minmax(0,1fr)}
+  #hosgeldiniz .dal-hint{display:flex}
+}
+#hosgeldiniz .dal-hint{display:none;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 0;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+#hosgeldiniz .dots{display:flex;gap:6px}
+#hosgeldiniz .dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:background .25s,width .25s}
+#hosgeldiniz .dots i.on{background:var(--al);width:20px;border-radius:4px}
+
 /* ===== HAKKIMIZDA ===== */
 .about{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
 .lead{font-size:clamp(1.25rem,2.2vw,1.55rem);line-height:1.5;font-weight:400;margin:0 0 28px;max-width:34ch}
@@ -393,6 +435,18 @@ section{padding-block:clamp(72px,10vw,128px)}
 @media (max-width:980px){#katil .forms{grid-template-columns:repeat(2,minmax(0,1fr))}#katil .form.halk{grid-column:1 / -1;min-height:0}}
 @media (max-width:520px){#katil .forms{grid-template-columns:minmax(0,1fr)}#katil .form{min-height:0}}
 
+
+/* Kayıt kartları: dalın fotoğrafı silik, üstünde koyu örtü (Tuana Adımları şeritleriyle aynı dil) */
+#katil .form,#katil .form.halk{isolation:isolate;overflow:hidden;background:var(--night) var(--img) var(--pos)/cover no-repeat;color:#fff}
+#katil .form::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(16,16,18,.72),rgba(16,16,18,.9));transition:background .4s}
+#katil .form:hover::before,#katil .form:focus-visible::before{background:linear-gradient(180deg,rgba(16,16,18,.5),rgba(16,16,18,.86))}
+#katil .form .k{color:#ff8a94}
+#katil .form h3{color:#fff}
+#katil .form ul{color:rgba(255,255,255,.82)}
+#katil .form ul li::before{color:#ff8a94}
+#katil .form .go{color:#fff;border-top-color:rgba(255,255,255,.25)}
+#katil .form:hover,#katil .form:focus-visible{box-shadow:0 18px 40px rgba(40,4,8,.45)}
+
 /* ===== İLETİŞİM ===== */
 footer{background:var(--night);color:rgba(255,255,255,.8);padding-block:72px 36px}
 .foot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.2fr);gap:40px;align-items:start}
@@ -496,8 +550,10 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
   .gv.two > .t{order:0}
   .gv + .gv{margin-top:10px}
 }
-@media (max-width:860px){
+@media (max-width:1000px){
   .bar .wrap{grid-template-columns:auto 1fr auto}
+  .bar nav{display:none}
+  .bar .logo{justify-self:start}
   .bar .right{display:none}
   .menu-btn{display:block}
 }
@@ -562,82 +618,54 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
     <div>
       <p class="welcome">Kelime anlamı "cennetten düşen ilk yağmur damlası" olsa da Tuana bizim için çok daha fazlası: dostluk, kardeşlik ve beraberlik; doğusuyla batısıyla yedi bölge, yedi kültür. Ekmeğimizi, suyumuzu, sevincimizi ve hüznümüzü paylaştığımız kocaman bir aile.</p>
 
-      <!-- HALK OYUNU -->
-      <article class="kol halk">
-        <div class="grid12">
-          <div class="ph hero-ph" style="background-image:url(img/halk.jpg)" role="img" aria-label="Renkli kostümlü halk oyunu ekibi sahnede"></div>
-          <div class="card">
+      <ul class="dallar">
+        <li class="dal open" style="--img:url(img/halk.jpg);--pos:50% 40%">
+          <button type="button" class="dal-tab" aria-expanded="true" aria-controls="dal-halk"><span class="dal-name">Halk Oyunu</span></button>
+          <div class="dal-body" id="dal-halk">
             <span class="kicker">Anadolu'nun Adımları</span>
             <h3 class="kol-title">Halk Oyunu</h3>
-            <p class="lede">Binlerce yıllık Anadolu kültürünün sevincini, hüznünü ve hikâyesini taşıyan halk oyunlarımız, geçmişten aldığımız mirası geleceğin kuşaklarına aktaran bir köprüdür.</p>
+            <p class="dal-text">Binlerce yıllık Anadolu kültürünün sevincini, hüznünü ve hikâyesini taşıyan halk oyunlarımız, geçmişten aldığımız mirası geleceğin kuşaklarına aktaran bir köprüdür.</p>
+            <ul class="dal-groups"><li>Çocuk Halk Oyunları</li><li>Gençlik Halk Oyunları Gösteri Topluluğu</li><li>Hobi Halk Oyunları</li></ul><div class="dal-subs"><div><h4>Gala</h4><p>Yıl sonu ve yıl başı gösterileri</p></div><div><h4>Festivaller ve Açılışlar</h4><p>Yurt içi ve yurt dışında Türkiye temsili</p></div></div>
           </div>
-        </div>
-        <div class="grid12 subs">
-          <div class="kol-sub s1">
-            <div class="ph" style="background-image:url(img/h-gala.jpg)" role="img" aria-label="Siyah kıyafetli ekip gala sahnesinde"></div>
-            <h4>Gala</h4>
-            <p>Kendi bünyesinde hazırladığı yıl içerisindeki bütün çalışmalarını, yıl sonu ve yıl başı gösterileriyle taçlandırarak gala faaliyetlerinde bulunmaktadır.</p>
-          </div>
-          <div class="kol-sub s2">
-            <div class="ph" style="background-image:url(img/h-festival.jpg)" role="img" aria-label="Renkli kostümlü ekip festival sahnesinde"></div>
-            <h4>Uluslararası Festivaller ve Açılışlar</h4>
-            <p>Uluslararası festivallerde, olimpiyat açılışlarında, yurt içi ve yurt dışı yarışmalarda Türkiye'yi temsil ediyoruz.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- MODERN DANS -->
-      <article class="kol modern">
-        <div class="grid12">
-          <div class="text">
+        </li>
+        <li class="dal" style="--img:url(img/g-modern.jpg);--pos:50% 50%">
+          <button type="button" class="dal-tab" aria-expanded="false" aria-controls="dal-modern"><span class="dal-name">Modern Dans</span></button>
+          <div class="dal-body" id="dal-modern">
             <span class="kicker">Sahnenin Çağdaş Adımları</span>
             <h3 class="kol-title">Modern Dans</h3>
-            <p class="lede">Klasik balenin disiplininden doğup 20. yüzyılda özgürleşen bu dallar, bedenin diliyle duyguyu ve insanın iç dünyasını anlatır.</p>
-            <ul class="styles">
-              <li>Klasik Bale</li>
-              <li>Modern Dans</li>
-              <li>Salon Dansları</li>
-            </ul>
+            <p class="dal-text">Klasik balenin disiplininden doğup 20. yüzyılda özgürleşen bu dallar, bedenin diliyle duyguyu ve insanın iç dünyasını anlatır.</p>
+            <ul class="dal-groups"><li>Klasik Bale</li><li>Modern Dans</li><li>Salon Dansları</li></ul>
           </div>
-          <div class="ph main-ph" style="background-image:url(img/g-modern.jpg)" role="img" aria-label="Modern dans gösterisi"></div>
-        </div>
-      </article>
-
-      <!-- FLAMENKO -->
-      <article class="kol feat tone f-flamenko">
-        <div class="grid12">
-          <div class="ph" style="background-image:url(img/flamenko.jpg)" role="img" aria-label="Siyah kırmızı elbiseli flamenko dansçısı yelpazeyle sahnede"></div>
-          <div class="text">
+        </li>
+        <li class="dal" style="--img:url(img/flamenko.jpg);--pos:50% 30%">
+          <button type="button" class="dal-tab" aria-expanded="false" aria-controls="dal-flamenko"><span class="dal-name">Flamenko</span></button>
+          <div class="dal-body" id="dal-flamenko">
             <span class="kicker">Tutkunun Adımları</span>
             <h3 class="kol-title">Flamenko</h3>
-            <p class="lede">İspanya'nın Endülüs bölgesinde Roman, Arap ve Yahudi kültürlerinin buluşmasından doğan flamenko; aşkı, acıyı ve özgürlük tutkusunu topuk vuruşları ve el çırpışlarıyla anlatır.</p>
+            <p class="dal-text">İspanya'nın Endülüs bölgesinde Roman, Arap ve Yahudi kültürlerinin buluşmasından doğan flamenko; aşkı, acıyı ve özgürlük tutkusunu topuk vuruşları ve el çırpışlarıyla anlatır.</p>
+            
           </div>
-        </div>
-      </article>
-
-      <!-- SİRTAKİ -->
-      <article class="kol feat f-sirtaki">
-        <div class="grid12">
-          <div class="text">
+        </li>
+        <li class="dal" style="--img:url(img/sirtaki.jpg);--pos:50% 40%">
+          <button type="button" class="dal-tab" aria-expanded="false" aria-controls="dal-sirtaki"><span class="dal-name">Sirtaki</span></button>
+          <div class="dal-body" id="dal-sirtaki">
             <span class="kicker">Ege'nin Kardeş Adımları</span>
             <h3 class="kol-title">Sirtaki</h3>
-            <p class="lede">Eski Yunan halk danslarından beslenerek bir film için yaratılan sirtaki, omuz omuza dizilen dansçılarla dostluğu, birliği ve hayata coşkuyla bağlanmayı temsil eder.</p>
+            <p class="dal-text">Eski Yunan halk danslarından beslenerek bir film için yaratılan sirtaki, omuz omuza dizilen dansçılarla dostluğu, birliği ve hayata coşkuyla bağlanmayı temsil eder.</p>
+            
           </div>
-          <div class="ph" style="background-image:url(img/sirtaki.jpg)" role="img" aria-label="Geleneksel kostümlü erkek dansçılar omuz omuza dans ediyor"></div>
-        </div>
-      </article>
-
-      <!-- ORYANTAL -->
-      <article class="kol feat tone f-oryantal">
-        <div class="grid12">
-          <div class="ph" style="background-image:url(img/oryantal.jpg)" role="img" aria-label="Altın kostümlü oryantal dansçı karanlık sahnede"></div>
-          <div class="text">
+        </li>
+        <li class="dal" style="--img:url(img/oryantal.jpg);--pos:50% 35%">
+          <button type="button" class="dal-tab" aria-expanded="false" aria-controls="dal-oryantal"><span class="dal-name">Oryantal</span></button>
+          <div class="dal-body" id="dal-oryantal">
             <span class="kicker">Zarafetin Adımları</span>
             <h3 class="kol-title">Oryantal</h3>
-            <p class="lede">Kökleri Orta Doğu ve Anadolu'nun kadim kutlama danslarına uzanan oryantal, gövdenin akıcı hareketleriyle bereketi ve yaşam sevincini simgeler.</p>
+            <p class="dal-text">Kökleri Orta Doğu ve Anadolu'nun kadim kutlama danslarına uzanan oryantal, gövdenin akıcı hareketleriyle bereketi ve yaşam sevincini simgeler.</p>
+            
           </div>
-        </div>
-      </article>
+        </li>
+      </ul>
+      <p class="dal-hint" aria-hidden="true"><span>Kaydırarak diğer dalları görün</span><span class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span></p>
     </div>
   </div>
 </section>
@@ -851,27 +879,27 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
       <a class="contact" href="#iletisim">Bize Ulaş</a>
     </div>
       <div class="forms">
-      <a class="form halk" href="https://docs.google.com/forms/d/e/1FAIpQLSd2lQUvC6xoo0z5QlB_eUaaXdRKMRsV1DzFm2kyMMQtaMMdZg/viewform" target="_blank" rel="noopener">
+      <a class="form halk" style="--img:url(img/halk.jpg);--pos:50% 40%" href="https://docs.google.com/forms/d/e/1FAIpQLSd2lQUvC6xoo0z5QlB_eUaaXdRKMRsV1DzFm2kyMMQtaMMdZg/viewform" target="_blank" rel="noopener">
         <div><span class="k">Anadolu'nun Adımları</span><h3>Halk Oyunu</h3></div>
         <ul><li>Çocuk Halk Oyunları</li><li>Gençlik Halk Oyunları Gösteri Topluluğu</li><li>Hobi Halk Oyunları</li></ul>
         <span class="go">Kayıt formu</span>
       </a>
-      <a class="form" href="https://docs.google.com/forms/d/e/1FAIpQLSerUZwzCKtc6X5CPGf4uU1HJ0JXshelEuW3KOwQCFsPaBBWoA/viewform" target="_blank" rel="noopener">
+      <a class="form" style="--img:url(img/g-modern.jpg);--pos:50% 50%" href="https://docs.google.com/forms/d/e/1FAIpQLSerUZwzCKtc6X5CPGf4uU1HJ0JXshelEuW3KOwQCFsPaBBWoA/viewform" target="_blank" rel="noopener">
         <div><span class="k">Sahnenin Çağdaş Adımları</span><h3>Modern Dans</h3></div>
         <ul><li>Çocuk Bale</li><li>Yetişkin Bale</li><li>Salon Dansları</li></ul>
         <span class="go">Kayıt formu</span>
       </a>
-      <a class="form" href="https://docs.google.com/forms/d/e/1FAIpQLSfzQJ4TENhKbddRqTam_FtOnds2jvsKqyfgkJ-zNfVMSimTtQ/viewform" target="_blank" rel="noopener">
+      <a class="form" style="--img:url(img/flamenko.jpg);--pos:50% 30%" href="https://docs.google.com/forms/d/e/1FAIpQLSfzQJ4TENhKbddRqTam_FtOnds2jvsKqyfgkJ-zNfVMSimTtQ/viewform" target="_blank" rel="noopener">
         <div><span class="k">Tutkunun Adımları</span><h3>Flamenko</h3></div>
         <span></span>
         <span class="go">Kayıt formu</span>
       </a>
-      <a class="form" href="https://docs.google.com/forms/d/e/1FAIpQLSecwFLTdunz5H1PHQCSDM7DPaVdPWzhf_x9lLJD7ozP1UmDsQ/viewform" target="_blank" rel="noopener">
+      <a class="form" style="--img:url(img/sirtaki.jpg);--pos:50% 40%" href="https://docs.google.com/forms/d/e/1FAIpQLSecwFLTdunz5H1PHQCSDM7DPaVdPWzhf_x9lLJD7ozP1UmDsQ/viewform" target="_blank" rel="noopener">
         <div><span class="k">Ege'nin Kardeş Adımları</span><h3>Sirtaki</h3></div>
         <span></span>
         <span class="go">Kayıt formu</span>
       </a>
-      <a class="form" href="https://docs.google.com/forms/d/e/1FAIpQLSc0v3yLW7sNDNsPh9g97HN2C3sEuFwXZpUDrpYEFHdyDWpB7g/viewform" target="_blank" rel="noopener">
+      <a class="form" style="--img:url(img/oryantal.jpg);--pos:50% 35%" href="https://docs.google.com/forms/d/e/1FAIpQLSc0v3yLW7sNDNsPh9g97HN2C3sEuFwXZpUDrpYEFHdyDWpB7g/viewform" target="_blank" rel="noopener">
         <div><span class="k">Zarafetin Adımları</span><h3>Oryantal</h3></div>
         <span></span>
         <span class="go">Kayıt formu</span>
@@ -1012,6 +1040,24 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
   }
   chips.forEach(function(c){ c.addEventListener('click', function(){ show(c.dataset.f); }); });
   document.querySelectorAll('#egitmenler .person').forEach(function(p, i){ p.style.animationDelay = (i % 8 * 60) + 'ms'; });
+})();
+</script>
+<script>
+(function(){
+  var dals=[].slice.call(document.querySelectorAll('#hosgeldiniz .dal'));
+  dals.forEach(function(d){
+    var tab=d.querySelector('.dal-tab');
+    function open(){ dals.forEach(function(o){ var on=o===d; o.classList.toggle('open',on); o.querySelector('.dal-tab').setAttribute('aria-expanded',on?'true':'false'); }); }
+    tab.addEventListener('click',open);
+    if (window.matchMedia('(hover:hover)').matches) tab.addEventListener('mouseenter',open);
+  });
+  /* Telefonda kaydırma noktaları */
+  var ul=document.querySelector('#hosgeldiniz .dallar'), dots=document.querySelectorAll('#hosgeldiniz .dots i');
+  ul.addEventListener('scroll',function(){
+    var w=dals[0].getBoundingClientRect().width+12, i=Math.round(ul.scrollLeft/w);
+    if(ul.scrollLeft+ul.clientWidth>=ul.scrollWidth-4) i=dals.length-1;
+    dots.forEach(function(d,k){ d.classList.toggle('on',k===i); });
+  },{passive:true});
 })();
 </script>
 <script>
