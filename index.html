@@ -506,7 +506,10 @@ section[id],footer[id],div[id="katil"]{scroll-margin-top:64px}
 .bar .mnav a{text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line);font-size:.86rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
 .bar .mnav a.ticket{color:var(--al);font-weight:500;border-bottom:0}
 .map-box{display:grid;gap:10px}
-.map-links{display:flex;flex-wrap:wrap;gap:10px 22px}
+.map-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.map-tab{appearance:none;min-height:44px;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font:inherit;font-family:var(--f-head);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .2s,border-color .2s}
+.map-tab:hover{border-color:#fff}
+.map-tab[aria-pressed="true"]{background:var(--al);border-color:var(--al)}
 .map-frame{width:100%;aspect-ratio:4/3;border:1px solid rgba(255,255,255,.18);display:block;filter:grayscale(.35) contrast(1.05);background:#18181b}
 .map-link{justify-self:start;text-decoration:none;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;border-bottom:1px solid var(--al);padding-bottom:2px}
 .map-link:hover{color:var(--al)}
@@ -958,18 +961,19 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
       </div>
       <div>
         <h4>Tuana Gökkuşağı</h4>
-        <p>Ümit Mah. 2540. Sk. No: 20<br>Çankaya / Ankara</p>
+        <p>Gökkuşağı Mah. 1210. Sk. No: 11/B<br>Cevizlidere / Ankara</p>
         <h4 style="margin-top:24px">Tuana Armada</h4>
         <p>Armada AVM B Blok Kat: 3<br>Beştepe, Dumlupınar Blv. No:6<br>Yenimahalle / Ankara</p>
         <h4 style="margin-top:24px">E-posta</h4>
         <p style="user-select:all">tuanasanatkulubu@gmail.com</p>
       </div>
       <div class="map-box">
-        <iframe class="map-frame" title="Harita: Tuana Gökkuşağı" src="https://www.google.com/maps?q=%C3%9Cmit+Mah.+2540.+Sk.+No:20,+06810+%C3%87ankaya,+Ankara&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-        <div class="map-links">
-          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Master+Art+Akademi+Bale+ve+M%C3%BCzik+Okulu&query_place_id=ChIJ6Y2MxvQ40xQRInLopUd1u2Q" target="_blank" rel="noopener">Gökkuşağı yol tarifi →</a>
-          <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Armada+AVM+Ankara" target="_blank" rel="noopener">Armada yol tarifi →</a>
+        <iframe class="map-frame" id="mapFrame" title="Harita: Tuana Gökkuşağı" src="https://www.google.com/maps?q=G%C3%B6kku%C5%9Fa%C4%9F%C4%B1+Mah.+1210.+Sk.+No:11%2FB,+Cevizlidere,+%C3%87ankaya,+Ankara&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-tabs" role="group" aria-label="Konum seç">
+          <button type="button" class="map-tab" aria-pressed="true" data-embed="https://www.google.com/maps?q=G%C3%B6kku%C5%9Fa%C4%9F%C4%B1+Mah.+1210.+Sk.+No:11%2FB,+Cevizlidere,+%C3%87ankaya,+Ankara&z=16&output=embed" data-dir="https://www.google.com/maps/search/?api=1&query=G%C3%B6kku%C5%9Fa%C4%9F%C4%B1+Mah.+1210.+Sk.+No:11%2FB+Cevizlidere+Ankara" data-name="Tuana Gökkuşağı">Gökkuşağı</button>
+          <button type="button" class="map-tab" aria-pressed="false" data-embed="https://www.google.com/maps?q=Armada+AVM,+Dumlup%C4%B1nar+Blv.+No:6,+Yenimahalle,+Ankara&z=15&output=embed" data-dir="https://www.google.com/maps/search/?api=1&query=Armada+AVM+Ankara" data-name="Tuana Armada">Armada</button>
         </div>
+        <a class="map-link" id="mapDir" href="https://www.google.com/maps/search/?api=1&query=G%C3%B6kku%C5%9Fa%C4%9F%C4%B1+Mah.+1210.+Sk.+No:11%2FB+Cevizlidere+Ankara" target="_blank" rel="noopener">Gökkuşağı yol tarifi →</a>
       </div>
     </div>
     <div class="copy"><span>© <span id="yr">2026</span> Tuana Sanat Kulübü</span><span>Genel Sanat Yönetmeni Av. Suphi Tugay Ertunç</span></div>
@@ -1164,6 +1168,13 @@ footer{padding-bottom:max(36px,env(safe-area-inset-bottom,0px))}
     new IntersectionObserver(function(en){ heroVisible=en[0].intersectionRatio>0.35; if(soundOn) ramp(heroVisible?1:0, heroVisible?1.5:1); },{threshold:[0,.35,.6]}).observe(hero);
   }
   document.addEventListener('visibilitychange',function(){ if(document.hidden&&soundOn) ramp(0,.2); else if(soundOn&&heroVisible) ramp(1,1.5); });
+
+  /* Harita: Gökkuşağı / Armada */
+  var mf=document.getElementById('mapFrame'), md=document.getElementById('mapDir');
+  document.querySelectorAll('.map-tab').forEach(function(t){ t.addEventListener('click',function(){
+    document.querySelectorAll('.map-tab').forEach(function(o){ o.setAttribute('aria-pressed', o===t?'true':'false'); });
+    mf.src=t.dataset.embed; mf.title='Harita: '+t.dataset.name; md.href=t.dataset.dir; md.textContent=t.textContent+' yol tarifi →';
+  }); });
 
   /* Mobil menü */
   var btn=document.querySelector('.menu-btn'), m=document.getElementById('mnav');
