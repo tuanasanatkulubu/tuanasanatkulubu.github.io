@@ -305,6 +305,7 @@ section{padding-block:clamp(72px,10vw,128px)}
 /* ===== KOL GRUPLARI ===== */
 #egitmenler .groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(48px,7vw,88px) clamp(20px,4vw,48px)}
 #egitmenler .group{display:grid;gap:22px;align-content:start}
+#egitmenler .group[hidden]{display:none}
 #egitmenler .group.wide{grid-column:1 / -1}
 #egitmenler .group-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;border-bottom:1px solid var(--line);padding-bottom:14px}
 #egitmenler .group-head .t{display:grid;gap:4px}
@@ -365,6 +366,14 @@ a.branch:hover b{color:var(--al)}
 .gv .t9{background-image:url(../img/g-mavi.jpg);background-position:30% 50%}.gv .t10{background-image:url(../img/g-cicek.jpg);background-position:48% 40%}.gv .t11{background-image:url(../img/g-beyaz.jpg)}
 .gv .t12{background-image:url(../img/g-mor2.jpg);background-position:70% 50%}.gv .t13{background-image:url(../img/g-erkek.jpg)}.gv .t14{background-image:url(../img/g-vaksa.jpg);background-position:50% 72%}.gv .t15{background-image:url(../img/g-diz.jpg);background-position:40% 50%}
 .gv.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gv.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gv.three .t{aspect-ratio:4/3}
+.gv.press .t{aspect-ratio:3/4;background-position:50% 0}
+#galeri .gal-sub{display:block;margin:clamp(32px,5vw,56px) 0 clamp(14px,2vw,22px)}
+.gv .t16{background-image:url(../img/g-roman.jpg);background-position:55% 40%}.gv .t17{background-image:url(../img/g-siyah.jpg);background-position:50% 30%}.gv .t18{background-image:url(../img/g-vaksa2003.jpg);background-position:50% 85%}
+.gv .t19{background-image:url(../img/g-turkfest.jpg);background-position:55% 60%}.gv .t20{background-image:url(../img/g-turkfest-gece.jpg);background-position:50% 55%}.gv .t21{background-image:url(../img/g-ekip-eski.jpg);background-position:50% 55%}
+.gv .t22{background-image:url(../img/basin-la-tribuna-2004.jpg)}.gv .t23{background-image:url(../img/basin-fransa-2007.jpg)}.gv .t24{background-image:url(../img/basin-vatan-2022.jpg)}
+
 .gv.two .t{aspect-ratio:3/2}
 
 /* ===== GALERİ: sekmeler + gösteriler ===== */
@@ -588,6 +597,11 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
   .gv .col{display:contents}
   .gv > .t{grid-column:1 / -1;order:-1}
   .gv.two > .t{order:0}
+  .gv.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gv.three > .t{grid-column:auto;order:0}
+  .gv.three > .t:first-child{grid-column:1 / -1}
+  .gv.press > .t:first-child{grid-column:auto}
+  .gv.press{grid-template-columns:repeat(3,minmax(0,1fr))}
   .gv + .gv{margin-top:10px}
 }
 @media (max-width:1000px){
@@ -887,13 +901,29 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
       <!-- FOTOĞRAFLAR -->
       <div class="panel" id="p-foto" role="tabpanel" aria-labelledby="tab-foto" hidden>
         <div class="gv">
-          <div class="col"><button class="t t9" type="button" aria-label="Enlarge: dancers in blue skirts with open arms on stage" data-alt="Mavi etekli dansçılar sahnede kollarını açmış"></button><button class="t t12" type="button" aria-label="Enlarge: women dancers with silver jewellery under purple light" data-alt="Mor ışık altında gümüş takılı kadın dansçılar"></button></div>
-          <button class="t t10" type="button" aria-label="Enlarge: men and women folk dancers with floral headdresses" data-alt="Çiçekli başlıklı kadın ve erkek halk oyuncuları"></button>
-          <div class="col"><button class="t t14" type="button" aria-label="Enlarge: men's and women's folk dance team on the competition stage" data-alt="Kadın ve erkek halk oyunu ekibi yarışma sahnesinde"></button><button class="t t15" type="button" aria-label="Enlarge: folk dancers kneeling in a line" data-alt="Halk oyuncuları sıra halinde diz çekiyor"></button></div>
+          <div class="col"><button class="t t9" type="button" aria-label="Enlarge: dancers in blue skirts with open arms on stage" data-alt="Dancers in blue skirts with open arms on stage"></button><button class="t t12" type="button" aria-label="Enlarge: women dancers with silver jewellery under purple light" data-alt="Women dancers with silver jewellery under purple light"></button></div>
+          <button class="t t10" type="button" aria-label="Enlarge: men and women folk dancers with floral headdresses" data-alt="Men and women folk dancers with floral headdresses"></button>
+          <div class="col"><button class="t t14" type="button" aria-label="Enlarge: men's and women's folk dance team on the competition stage" data-alt="Men's and women's folk dance team on the competition stage"></button><button class="t t15" type="button" aria-label="Enlarge: folk dancers kneeling in a line" data-alt="Folk dancers kneeling in a line"></button></div>
         </div>
         <div class="gv two">
-          <button class="t t13" type="button" aria-label="Enlarge: men folk dancers in black vests on stage" data-alt="Siyah yelekli erkek halk oyuncuları sahnede"></button>
-          <button class="t t11" type="button" aria-label="Enlarge: modern dance team in white costumes lined up on stage" data-alt="Beyaz kostümlü modern dans ekibi sahnede sıralanmış"></button>
+          <button class="t t13" type="button" aria-label="Enlarge: men folk dancers in black vests on stage" data-alt="Men folk dancers in black vests on stage"></button>
+          <button class="t t11" type="button" aria-label="Enlarge: modern dance team in white costumes lined up on stage" data-alt="Modern dance team in white costumes lined up on stage"></button>
+        </div>
+        <div class="gv three">
+          <button class="t t16" type="button" aria-label="Enlarge: men and women dancers in Romani costumes raising their arms on stage" data-alt="Men and women dancers in Romani costumes raising their arms on stage"></button>
+          <button class="t t17" type="button" aria-label="Enlarge: folk dancers in black costumes and red scarves, hand in hand in a line" data-alt="Folk dancers in black costumes and red scarves, hand in hand in a line"></button>
+          <button class="t t18" type="button" aria-label="Enlarge: the ensemble dancing hand in hand at the 2003 Folk Dance Competition" data-alt="The ensemble dancing hand in hand at the 2003 Folk Dance Competition"></button>
+        </div>
+        <div class="gv three">
+          <button class="t t19" type="button" aria-label="Enlarge: the ensemble dancing outdoors on a Turkish Festival stage" data-alt="The ensemble dancing outdoors on a Turkish Festival stage"></button>
+          <button class="t t20" type="button" aria-label="Enlarge: bowing after an evening performance on a Turkish Festival stage" data-alt="Bowing after an evening performance on a Turkish Festival stage"></button>
+          <button class="t t21" type="button" aria-label="Enlarge: group photo in costume from the club's early years" data-alt="Group photo in costume from the club's early years"></button>
+        </div>
+        <h3 class="kicker gal-sub">Tuana in the Press</h3>
+        <div class="gv three press">
+          <button class="t t22" type="button" aria-label="Enlarge: La Tribuna de Ciudad Real newspaper, Spain, 2004: “Danza turca en las calles de la capital”" data-alt="La Tribuna de Ciudad Real newspaper, Spain, 2004: “Danza turca en las calles de la capital”"></button>
+          <button class="t t23" type="button" aria-label="Enlarge: performance poster, France, 24 May 2007: “Ballet National Turc Tuana”" data-alt="Performance poster, France, 24 May 2007: “Ballet National Turc Tuana”"></button>
+          <button class="t t24" type="button" aria-label="Enlarge: Vatan newspaper, 20 October 2022: Turkish festival in Washington, D.C." data-alt="Vatan newspaper, 20 October 2022: Turkish festival in Washington, D.C."></button>
         </div>
       </div>
 

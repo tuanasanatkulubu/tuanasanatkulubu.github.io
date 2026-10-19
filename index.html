@@ -304,6 +304,7 @@ section{padding-block:clamp(72px,10vw,128px)}
 /* ===== KOL GRUPLARI ===== */
 #egitmenler .groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(48px,7vw,88px) clamp(20px,4vw,48px)}
 #egitmenler .group{display:grid;gap:22px;align-content:start}
+#egitmenler .group[hidden]{display:none}
 #egitmenler .group.wide{grid-column:1 / -1}
 #egitmenler .group-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 20px;border-bottom:1px solid var(--line);padding-bottom:14px}
 #egitmenler .group-head .t{display:grid;gap:4px}
@@ -364,6 +365,14 @@ a.branch:hover b{color:var(--al)}
 .gv .t9{background-image:url(img/g-mavi.jpg);background-position:30% 50%}.gv .t10{background-image:url(img/g-cicek.jpg);background-position:48% 40%}.gv .t11{background-image:url(img/g-beyaz.jpg)}
 .gv .t12{background-image:url(img/g-mor2.jpg);background-position:70% 50%}.gv .t13{background-image:url(img/g-erkek.jpg)}.gv .t14{background-image:url(img/g-vaksa.jpg);background-position:50% 72%}.gv .t15{background-image:url(img/g-diz.jpg);background-position:40% 50%}
 .gv.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gv.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gv.three .t{aspect-ratio:4/3}
+.gv.press .t{aspect-ratio:3/4;background-position:50% 0}
+#galeri .gal-sub{display:block;margin:clamp(32px,5vw,56px) 0 clamp(14px,2vw,22px)}
+.gv .t16{background-image:url(img/g-roman.jpg);background-position:55% 40%}.gv .t17{background-image:url(img/g-siyah.jpg);background-position:50% 30%}.gv .t18{background-image:url(img/g-vaksa2003.jpg);background-position:50% 85%}
+.gv .t19{background-image:url(img/g-turkfest.jpg);background-position:55% 60%}.gv .t20{background-image:url(img/g-turkfest-gece.jpg);background-position:50% 55%}.gv .t21{background-image:url(img/g-ekip-eski.jpg);background-position:50% 55%}
+.gv .t22{background-image:url(img/basin-la-tribuna-2004.jpg)}.gv .t23{background-image:url(img/basin-fransa-2007.jpg)}.gv .t24{background-image:url(img/basin-vatan-2022.jpg)}
+
 .gv.two .t{aspect-ratio:3/2}
 
 /* ===== GALERİ: sekmeler + gösteriler ===== */
@@ -587,6 +596,11 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
   .gv .col{display:contents}
   .gv > .t{grid-column:1 / -1;order:-1}
   .gv.two > .t{order:0}
+  .gv.three{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gv.three > .t{grid-column:auto;order:0}
+  .gv.three > .t:first-child{grid-column:1 / -1}
+  .gv.press > .t:first-child{grid-column:auto}
+  .gv.press{grid-template-columns:repeat(3,minmax(0,1fr))}
   .gv + .gv{margin-top:10px}
 }
 @media (max-width:1000px){
@@ -893,6 +907,22 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
         <div class="gv two">
           <button class="t t13" type="button" aria-label="Büyüt: Siyah yelekli erkek halk oyuncuları sahnede" data-alt="Siyah yelekli erkek halk oyuncuları sahnede"></button>
           <button class="t t11" type="button" aria-label="Büyüt: Beyaz kostümlü modern dans ekibi sahnede sıralanmış" data-alt="Beyaz kostümlü modern dans ekibi sahnede sıralanmış"></button>
+        </div>
+        <div class="gv three">
+          <button class="t t16" type="button" aria-label="Büyüt: Roman kostümlü kadın ve erkek dansçılar sahnede kollarını kaldırmış" data-alt="Roman kostümlü kadın ve erkek dansçılar sahnede kollarını kaldırmış"></button>
+          <button class="t t17" type="button" aria-label="Büyüt: Siyah kostümlü, kırmızı puşili halk oyuncuları el ele sırada" data-alt="Siyah kostümlü, kırmızı puşili halk oyuncuları el ele sırada"></button>
+          <button class="t t18" type="button" aria-label="Büyüt: 2003 Halk Dansları Yarışması sahnesinde el ele dans eden ekip" data-alt="2003 Halk Dansları Yarışması sahnesinde el ele dans eden ekip"></button>
+        </div>
+        <div class="gv three">
+          <button class="t t19" type="button" aria-label="Büyüt: Türk Festivali sahnesinde açık havada dans eden ekip" data-alt="Türk Festivali sahnesinde açık havada dans eden ekip"></button>
+          <button class="t t20" type="button" aria-label="Büyüt: Türk Festivali sahnesinde akşam gösterisi sonrası selamlama" data-alt="Türk Festivali sahnesinde akşam gösterisi sonrası selamlama"></button>
+          <button class="t t21" type="button" aria-label="Büyüt: Kulübün ilk yıllarından kostümlü topluluk fotoğrafı" data-alt="Kulübün ilk yıllarından kostümlü topluluk fotoğrafı"></button>
+        </div>
+        <h3 class="kicker gal-sub">Basında Tuana</h3>
+        <div class="gv three press">
+          <button class="t t22" type="button" aria-label="Büyüt: La Tribuna de Ciudad Real gazetesi, İspanya, 2004: Danza turca en las calles de la capital" data-alt="La Tribuna de Ciudad Real gazetesi, İspanya, 2004: Danza turca en las calles de la capital"></button>
+          <button class="t t23" type="button" aria-label="Büyüt: Fransa gösteri afişi, 24 Mayıs 2007: Ballet National Turc Tuana" data-alt="Fransa gösteri afişi, 24 Mayıs 2007: Ballet National Turc Tuana"></button>
+          <button class="t t24" type="button" aria-label="Büyüt: Vatan gazetesi, 20 Ekim 2022: Başkent Washington’da Türkiye rüzgârı esti" data-alt="Vatan gazetesi, 20 Ekim 2022: Başkent Washington’da Türkiye rüzgârı esti"></button>
         </div>
       </div>
 
