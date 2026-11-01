@@ -1098,7 +1098,7 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
         })(t0);
       });
     }, {threshold:.6});
-    document.querySelectorAll('.stat b').forEach(function(s){ io.observe(s); });
+    document.querySelectorAll('.stat > b[data-to]').forEach(function(s){ io.observe(s); });  /* yalnız rakamlar; açılır listedeki yıllar değil */
   }
 
   /* Hakkımızda: masaüstünde üzerine gelince, dokunmatikte dokununca liste açılır */
