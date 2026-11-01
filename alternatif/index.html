@@ -563,7 +563,7 @@ dialog.vd[open],dialog.lb[open]{display:grid;place-items:center}
     <div class="show-info">
       <dl class="facts">
         <div><dt>Tarih</dt><dd>5 Aralık 2026, Cumartesi</dd></div>
-        <div><dt>Saat</dt><dd>19:00</dd></div>
+        <div><dt>Saat</dt><dd>19:30</dd></div>
         <div><dt>Salon</dt><dd>MEB Şura Salonu, Ankara</dd></div>
       </dl>
       <p class="countdown" id="countdown" aria-live="off"><b id="cd-d">--</b> gün <b id="cd-h">--</b> saat <b id="cd-m">--</b> dakika kaldı</p>
@@ -736,8 +736,8 @@ dialog.vd[open],dialog.lb[open]{display:grid;place-items:center}
 
 
 
-  /* Geri sayım: 5 Aralık 2026 19:00 (Türkiye saati) */
-  var SHOW = new Date('2026-12-05T19:00:00+03:00');
+  /* Geri sayım: 5 Aralık 2026 19:30 (Türkiye saati) */
+  var SHOW = new Date('2026-12-05T19:30:00+03:00');
   function pad(x){ return String(x).padStart(2,'0'); }
   function tick(){
     var ms = SHOW - new Date();

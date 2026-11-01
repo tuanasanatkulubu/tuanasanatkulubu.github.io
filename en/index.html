@@ -264,9 +264,10 @@ section{padding-block:clamp(72px,10vw,128px)}
 /* ===== SIRADAKİ GÖSTERİ (koyu bant) ===== */
 .show-band{background:var(--night);color:#fff}
 .show{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
-.poster{display:grid;justify-items:center;gap:4px;padding-block:24px}
-.poster img{width:min(260px,64%);height:auto}
-.poster .name{font-family:var(--f-script);font-size:clamp(5rem,10vw,7.5rem);line-height:.95}
+.poster{position:relative;justify-self:center;width:min(100%,500px)}
+.poster .afis{display:block;width:100%;height:auto}
+.poster .name{position:absolute;left:0;right:0;top:32%;text-align:center;font-family:var(--f-script);font-size:clamp(4rem,9vw,6.6rem);line-height:1;text-shadow:0 2px 28px rgba(0,0,0,.75)}
+.poster .afis-logo{position:absolute;left:50%;bottom:3%;transform:translateX(-50%);width:30%;height:auto}
 .show-info{display:grid;gap:26px}
 .show-info h2{font-size:.85rem;letter-spacing:.3em;color:rgba(255,255,255,.65)}
 .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 28px;margin:0}
@@ -772,14 +773,15 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
   <section class="show-band" id="gosteri">
     <div class="wrap show">
       <div class="poster">
-        <img src="../img/logo-beyaz-en.png" alt="Tuana Art Club" width="900" height="440">
+        <img class="afis" src="../img/kibele-afis.jpg" alt="Kibele performance poster" width="1122" height="1402">
         <div class="name"><span lang="tr">Kibele</span></div>
+        <img src="../img/logo-beyaz-en.png" alt="Tuana Art Club" class="afis-logo" width="900" height="440">
       </div>
       <div class="show-info">
         <h2>Next performance</h2>
         <dl class="facts">
           <div><dt>Date</dt><dd>Saturday, 5 December 2026</dd></div>
-          <div><dt>Time</dt><dd>19:00</dd></div>
+          <div><dt>Time</dt><dd>19:30</dd></div>
           <div><dt>Venue</dt><dd>MEB <span lang="tr">Şura</span> Salonu</dd></div>
           <div><dt>City</dt><dd>Ankara</dd></div>
         </dl>
@@ -1064,8 +1066,8 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
   var n = done + 1, m = n % 100; document.getElementById('ordinal').textContent = n + ((m > 10 && m < 14) ? 'th' : ({1:'st',2:'nd',3:'rd'}[n % 10] || 'th'));
   document.getElementById('yr').textContent = now.getFullYear();
 
-  /* Geri sayım: 5 Aralık 2026 19:00 (Türkiye saati) */
-  var SHOW = new Date('2026-12-05T19:00:00+03:00');
+  /* Geri sayım: 5 Aralık 2026 19:30 (Türkiye saati) */
+  var SHOW = new Date('2026-12-05T19:30:00+03:00');
   function pad(v){ return String(v).padStart(2,'0'); }
   function tick(){
     var ms = SHOW - new Date();
