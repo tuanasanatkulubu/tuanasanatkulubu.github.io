@@ -1005,7 +1005,7 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
 <dialog class="notice" id="ticketNotice" aria-labelledby="tn-title">
   <div class="notice-card">
     <p class="notice-k">Kibele · 5 Aralık 2026</p>
-    <h2 id="tn-title">Bilet satışı 20 Kasım 2026 tarihinde başlayacaktır.</h2>
+    <h2 id="tn-title">Bilet satışı 7 Kasım 2026 saat 09:00’da başlayacaktır.</h2>
     <p>Satış başladığında “Bilet Al” düğmeleri doğrudan bilet sayfasını açacak.</p>
     <button type="button" class="notice-ok">Tamam</button>
   </div>
@@ -1263,13 +1263,13 @@ dialog.notice::backdrop{background:rgba(10,10,12,.72)}
     mf.src=t.dataset.embed; mf.title='Harita: '+t.dataset.name; md.href=t.dataset.dir; md.textContent=t.textContent+' yol tarifi →';
   }); });
 
-  /* Bilet satışı 20 Kasım 2026 00:00 (Türkiye saati) öncesinde bilet bağlantıları açılmaz, uyarı gösterilir */
-  var SALE=new Date('2026-11-20T00:00:00+03:00'), tn=document.getElementById('ticketNotice');
+  /* Bilet satışı 7 Kasım 2026 09:00 (Türkiye saati) öncesinde bilet bağlantıları açılmaz, uyarı gösterilir */
+  var SALE=new Date('2026-11-07T09:00:00+03:00'), tn=document.getElementById('ticketNotice');
   document.addEventListener('click',function(e){
     var a=e.target.closest&&e.target.closest('a[href*="bilet-7c4e6.web.app"],a[href*="bilet.tuanasanatkulubu.com"]');
     if(!a||new Date()>=SALE) return;
     e.preventDefault();
-    if(tn.showModal){ tn.showModal(); tn.querySelector('.notice-ok').focus(); } else alert('Bilet satışı 20 Kasım 2026 tarihinde başlayacaktır.');
+    if(tn.showModal){ tn.showModal(); tn.querySelector('.notice-ok').focus(); } else alert('Bilet satışı 7 Kasım 2026 saat 09:00’da başlayacaktır.');
   },true);
   tn.querySelector('.notice-ok').addEventListener('click',function(){ tn.close(); });
   tn.addEventListener('click',function(e){ if(e.target===tn) tn.close(); });
